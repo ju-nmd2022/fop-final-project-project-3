@@ -26,6 +26,9 @@
     animation: jump 800ms infinite;
 }
 
+.animate {
+}
+
 @keyframes jump {
     0% {top: 580px;}
     30% {top: 400px;}
