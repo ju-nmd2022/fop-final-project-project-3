@@ -9,14 +9,25 @@
 </head>
 <body>
     <div id="background"></div>
-    <div id="game" >        
+    <div id="game">        
         <div id="ground"></div>
         <div id="character"></div>
         <div class="obstacles"></div>
-        <h3>Score: <span id="score">0</span></h3>
+        <h3>Score:<span id="score">0</span></h3>
         <div id="lifelines"></div>
+    </div>
+    <div class="end" id="end">
+        <div class="textResultContainer">
+            <div class="gameOverText">Game Over</div>
+            <div class="resultText">Your Score</div>
+            <div class="endScore" id="endScore">0</div>
+            <div class="container">
+                <button class="startOverButton" onclick="reload();">Try Again</button>
+                <!-- change so that the start button onclick takes you to start page -->
+                <button class="goToStartButton" onclick="reload();">Go to Start</button>
+            </div>
+        </div>
     </div>
 <script src="maingame.js"></script>
 </body>
 </html>
-

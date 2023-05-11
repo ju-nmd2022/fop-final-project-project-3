@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 #game {
@@ -22,14 +23,16 @@
   height: 100vh;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
   animation: moveRight 15s linear infinite;
+}
+
+@keyframes moveRight {
+  100%{transform:translateX(-876px)};
 }
 
 #ground {
   width: 100%;
   height: 70px;
-  background-color: green;
   opacity: 0%;
   position: absolute;
   bottom: 0px;
@@ -62,29 +65,94 @@ h3 {
 
 #lifelines {
   background-image: url(images/heart.png);
-  margin-top: auto;
+  display: grid;
   margin-left: 94%;
   width: 38px;
   height: 38px;
 }
 
-/* body,
-html {
-  background-image: url(images/origbig.png);
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-} */
-
 body {
   display: grid;
 }
 
-@keyframes moveRight {
-  100%{transform:translateX(-1576px)};
+.end {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-image: url(images/bluesky.png);
+  background-size: contain;
+  visibility: hidden;
+}
+
+.textResultContainer {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container {
+  text-align: center;
+}
+
+.startOverButton {
+  height: 55px;
+  width: 300px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+}
+
+.startOverButton:hover {
+  height: 60px;
+  width: 320px;
+  background-color: antiquewhite;
+  cursor: pointer;
+  color: black;
+}
+
+.goToStartButton {
+  height: 55px;
+  width: 300px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+}
+
+.goToStartButton:hover {
+  height: 60px;
+  width: 320px;
+  background-color: antiquewhite;
+  cursor: pointer;
+  color: black;
+}
+
+.gameOverText {
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+}
+
+.resultText {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.endScore {
+  font-size: 50px;
+  font-weight: bold;
+  color: darkblue;
 }
 
 /* result and startgame */
