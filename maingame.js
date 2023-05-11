@@ -12,7 +12,6 @@ let displayScore = document.getElementById('score');
 let score = 0;
 
 // let modifier = 20;
-
 // // moving left and right
 // window.addEventListener('keydown', (event) => {
 //   switch (event.key) {
@@ -30,7 +29,7 @@ function jump() {
   if(isJumping) return;
   upTime = setInterval(() => {
 //how high up the character jumps is the number currently at 150
-    if (characterBottom >= groundHeight + 150) {
+    if (characterBottom >= groundHeight + 180) {
       clearInterval(upTime);
       downTime = setInterval(() => {
         //the number 10 below makes sure the character lands on the grass
@@ -44,7 +43,7 @@ function jump() {
     }, 20);
   }
   //how high the character jumps is the number 10 below
-    characterBottom += 10;
+    characterBottom += 15;
     character.style.bottom = characterBottom + 'px';
     isJumping = true;
 //the number below steers how fast the character lands currently at 20
@@ -68,8 +67,9 @@ function generateObstacle(){
 
   let obstacleRight = -20;
   let obstacleBottom = 70;
-  let obstacleWidth = 30;
-  let obstacleHeight = Math.floor(Math.random() * 40) + 20;
+  let obstacleWidth = 50;
+  let obstacleHeight = 50;
+  // Math.floor(Math.random() * 40) + 20; this one we will use instead how often the obstacles show up
 
   function moveObstacle(){
   //the number below 15 lets us know how fast or slow it goes in a way...
@@ -94,7 +94,7 @@ generateObstacle();
 
 //this is the control function of the arrowup key to make the character jump
 function control(e) {
-  if (e.key == 'ArrowUp' || e.key == ' ') {
+  if (e.key == 'ArrowUp') {
     jump();
   }
 }
@@ -102,10 +102,10 @@ function control(e) {
 //the keydown allows the character to jump when both the up arrow and space key is down apparently?
 document.addEventListener('keydown', control);
 
-
-//help we need: how to make less math.random obstacles have random distance between them
+//how to use math.random to have the obstacles appear with random distance between
 //how to make the obstacles appear as different characters between four or five png/jpg
-//how do we go from the alert game over to the result screen and how does it show different results?
 //if we want to keep the left and right movement then what must be done for it not to call game over if you move?
-//the character hits the obstacle but it stops a bit before? why is that?
-//the keydown allows the character to jump when both the up arrow and space key is down apparently? Where have I added that code?? :'D
+//the character hits the obstacle but it stops a bit before? how do we change that?
+//how do we make a five life with the hearts that removes them, what code can we use?
+
+//add background image here to make it stop when the rabbit dies.
