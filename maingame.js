@@ -103,10 +103,7 @@ function reload() {
 //max lives and min lives loop life number, paint pictures next to eachother
 //request animation frame (for intervals)-put all interval function into one (draw)
 
-
-
 //how to use parallax effect for a number of images to move with different speeds?
-//how do we make the animation of the background stop when the character dies?
 //how do we add lives: 5 at the top right corner and how do you code so when you die you lose a life?
 //how do we create an interval function to put all interval into one function?
 //how do we make the rabbit into a sprite? we have him normal, jumping with paws out and one where he's dead
@@ -125,3 +122,7 @@ function reload() {
 //       break;
 //   }
 // });
+
+// ta bort ett liv + en bild(child)
+// i krock if
+// if liv = 0 då visar vi endgame.

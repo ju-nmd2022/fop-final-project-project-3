@@ -1,18 +1,18 @@
 * {
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #game {
+  grid-column: 1/1;
+  grid-row: 1/1;
   width: 100%;
   height: 100%;
   position: absolute;
-  grid-column: 1/1;
-  grid-row: 1/1;
 }
 
-#background {
+/* #background {
   grid-column: 1/1;
   grid-row: 1/1;
   background-image: url(images/origbig.png);
@@ -24,12 +24,67 @@
   padding: 0;
   margin: 0;
   animation: moveRight 15s linear infinite;
+} */
+
+/* Parallax animation */
+.background_layer {
+  position: absolute;
+  grid-column: 1/1;
+  grid-row: 1/1;
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  width: 8000px;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+#frame-1 {
+  background-image: url(images/grassfront.png);
+  animation: moveRight 11s linear infinite;
+}
+
+#frame-2 {
+  background-image: url(images/tree2.png);
+  animation: moveRight 12s linear infinite;
+}
+
+#frame-3 {
+  background-image: url(images/tree1.png);
+  animation: moveRight 14s linear infinite;
+}
+
+#frame-4 {
+  background-image: url(images/bushes.png);
+  animation: moveRight 14s linear infinite;
+}
+
+#frame-5 {
+  background-image: url(images/grassback.png);
+  animation: moveRight 14s linear infinite;
+}
+
+#frame-6 {
+  background-image: url(images/mountains.png);
+  animation: moveRight 15s linear infinite;
+}
+
+#frame-7 {
+  background-image: url(images/clouds.png);
+  animation: moveRight 16s linear infinite;
+}
+
+#frame-8 {
+  background-image: url(images/bluesky.png);
+  animation: moveRight 15s linear infinite;
 }
 
 @keyframes moveRight {
   100%{transform:translateX(-876px)};
 }
 
+/* The game */
 #ground {
   width: 100%;
   height: 70px;
@@ -39,8 +94,9 @@
 }
 
 #character {
-  background-image: url(images/rabbit.png);
+  background-image: url(images/rabbit2.png);
   background-repeat: no-repeat;
+  background-size: cover;
   width: 75px;
   height: 75px;
   position: absolute;
@@ -49,15 +105,27 @@
 }
 
 .obstacle {
-  width: 50px;
-  height: 50px;
   background-image: url(images/mushroom.png);
+  width: 75px;
+  height: 75px;
   position: absolute;
   bottom: 70px;
   right: 0;
 }
 
-h3 {
+/* Scoreboard at the top of the screen */
+#scoreboard {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  size: contain;
+  position: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.scoreCounter {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-top: 20px;
   margin-left: 20px;
@@ -155,7 +223,7 @@ body {
   color: darkblue;
 }
 
-/* result and startgame */
+/* startgame page */
 .content {
   background-color: #ffffff;
   position: fixed;

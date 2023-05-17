@@ -1,11 +1,20 @@
-Kolla över kvaliten på kaninen
-Kolla över liven räkna ner
-Mathrandom på obstacletimeout i javascripten 
-Kolla över intervaltimer och att överväga att lägga dem i en och samma function
-Lifeline ska va sin egen grid
+- Kolla över kvaliten på kaninen och svampar (Den är just nu typ 50px vilket är litet...)
+- Kolla över om vi vill att liven ska räkna ner från 5 och att man då förlorar?
+- Mathrandom på obstacletimeout i javascripten CHECK
+- Kolla över intervaltimer och att överväga att lägga dem i en och samma function
+- Lifelines ska va sin egen grid (Ligger nu i en egen div: scoreboard) så CHECK antar jag
+- Få scoreboard att va framför parallax, den syns inte just nu.
+- Koppla start game html med main game med if statements (eller som vi gjort med result screen)
+- Ändra bakgrund med frame parallax animation CHECK (Vi ändrar sen hastighet för att det ska se snyggt ut)
+- Parallaxen startar om på olika platser så den förstör flowet, vi måste fixa så allt rullar hela tiden utan att det hackar.
 
+- istället för att vi har en start game html så kan vi göra som jag gjort med "end" i main game html så allt är på ett och samma ställe? vi kallar det då för "start" och kopplar den med javascript?
+- fixa till färger på knappar + om det ska vara något mer på result screen?
+- ändra hastighet på parallax (cloud, mountain etc) i css så de flyter på snyggt
 
-Koppla result + start game html med main game
+For the lab:
 
-Om tid
-Ändra bakgrund med frame animation
+- how do i scale the svg files such as rabbit and bush?
+- the bush/mushroom is lagging????????
+- after adding the parallax the whole website is lagging... how do i fix this?
+- how do i stop the parallax from "starting over? in different spots and just flow?
