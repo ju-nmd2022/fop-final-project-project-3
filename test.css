@@ -68,7 +68,7 @@
 }
 
 @keyframes moveRight {
-  100%{transform:translateX(-876px)};
+  100%{transform:translateX(-1876px)};
 }
 
 /* The game */
@@ -109,7 +109,6 @@
 .obstacle {
   background-image: url(images/mushroom.png);
   background-repeat: no-repeat;
-  background-size: contain;
   width: 75px;
   height: 75px;
   position: absolute;
@@ -231,81 +230,4 @@ body {
   font-size: 50px;
   font-weight: bold;
   color: darkblue;
-}
-
-/* startgame page */
-.content {
-  background-color: #ffffff;
-  position: fixed;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-.paragraph1 {
-  padding-inline-start: 20px;
-  padding-inline-end: 20px;
-  text-align: center;
-}
-
-.paragraph2 {
-  padding-inline-start: 20px;
-  padding-inline-end: 20px;
-  text-align: center;
-}
-
-.button1 {
-  background-color: #555;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  margin: 3%;
-  position: fixed;
-  top: 50%;
-  right: 40%;
-  cursor: pointer;
-}
-
-.button1:hover {
-  opacity: 75%;
-}
-
-.button2 {
-  background-color: #555;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  margin: 3%;
-  position: fixed;
-  top: 50%;
-  right: 40%;
-  cursor: pointer;
-}
-
-.button2:hover {
-  opacity: 75%;
-}
-
-.button3 {
-  background-color: #555;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  margin: 3%;
-  position: fixed;
-  top: 50%;
-  right: 0%;
-  cursor: pointer;
-}
-
-.button3:hover {
-  opacity: 75%;
 }

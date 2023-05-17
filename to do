@@ -1,19 +1,21 @@
-- Kolla över kvaliten på kaninen och svampar (Den är just nu typ 50px vilket är litet...)
-- Kolla över om vi vill att liven ska räkna ner från 5 och att man då förlorar?
-- Mathrandom på obstacletimeout i javascripten CHECK
-- Kolla över intervaltimer och att överväga att lägga dem i en och samma function
-- Lifelines ska va sin egen grid (Ligger nu i en egen div: scoreboard) så CHECK antar jag
-- Få scoreboard att va framför parallax, den syns inte just nu.
-- Koppla start game html med main game med if statements (eller som vi gjort med result screen)
-- Ändra bakgrund med frame parallax animation CHECK (Vi ändrar sen hastighet för att det ska se snyggt ut)
-- Parallaxen startar om på olika platser så den förstör flowet, vi måste fixa så allt rullar hela tiden utan att det hackar.
+Fix if there's time
 
-- Istället för att vi har en start game html så kan vi göra som jag gjort med "end" i main game html så allt är på ett och samma ställe? vi kallar det då för "start" och kopplar den med javascript?
-- Fixa till färger på knappar + om det ska vara något mer på result screen?
-- Ändra hastighet på parallax (cloud, mountain etc) i css så de flyter på snyggt
+- How do we stop the parallax from "starting over? in different spots and just flow?
+- Check if we want five lives to count down before you lose
+- Check if we want the rabbit to be able to collect carrots while playing
 
-For the lab:
-- How do i scale the svg files such as rabbit and bush?
-- The bush/mushroom is lagging????????
-- After adding the parallax the whole website is lagging... how do i fix this?
-- How do i stop the parallax from "starting over? in different spots and just flow?
+To do
+
+- Add the jumping rabbit image to appear when you press the up key (when you jump)
+- Make start screen like endscreen to make it easier to explain in the interview. See "end" in html and javascript!
+- Change colors on buttons (and hover buttons), text and background of endscreen + add other things in the endscreen like a passing cloud or something?
+- Change speed on parallax (cloud, mountain etc) in css to make it flow better and that you can see they move in different speeds
+- Connect startscreen with main game like endscreen and change startbutton from reload() to take it back to the startscreen instead
+- Fix so that the hearts disappear (lives = 5) when you hit an obstacle and after five times you lose
+- Fix trailer.
+
+Ida has:
+
+- Added the image for the jumping rabbit and it appears when you press the up key but now the rabbit won't jump (visibly)... needs fixing.
+- Put all interval timers into one function. Not sure how but chatgpt told me how to do it and i did it that way
+- Tried adding code to decrease the five lives everytime you lose and then you get the result but all five hearts disappear as one when you hit an obstacle... Needs attention
