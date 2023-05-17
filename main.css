@@ -106,6 +106,7 @@
 
 .obstacle {
   background-image: url(images/mushroom.png);
+  background-repeat: no-repeat;
   width: 75px;
   height: 75px;
   position: absolute;

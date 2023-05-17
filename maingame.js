@@ -56,8 +56,8 @@ function generateObstacle(){
 
   let obstacleRight = -20;
   let obstacleBottom = 70;
-  let obstacleWidth = 50;
-  let obstacleHeight = 50;
+  let obstacleWidth = 75;
+  let obstacleHeight = 75;
 
   function moveObstacle(){
   //the number below 15 lets us know how fast or slow it goes in a way...

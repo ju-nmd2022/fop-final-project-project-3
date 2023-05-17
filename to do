@@ -8,13 +8,12 @@
 - Ändra bakgrund med frame parallax animation CHECK (Vi ändrar sen hastighet för att det ska se snyggt ut)
 - Parallaxen startar om på olika platser så den förstör flowet, vi måste fixa så allt rullar hela tiden utan att det hackar.
 
-- istället för att vi har en start game html så kan vi göra som jag gjort med "end" i main game html så allt är på ett och samma ställe? vi kallar det då för "start" och kopplar den med javascript?
-- fixa till färger på knappar + om det ska vara något mer på result screen?
-- ändra hastighet på parallax (cloud, mountain etc) i css så de flyter på snyggt
+- Istället för att vi har en start game html så kan vi göra som jag gjort med "end" i main game html så allt är på ett och samma ställe? vi kallar det då för "start" och kopplar den med javascript?
+- Fixa till färger på knappar + om det ska vara något mer på result screen?
+- Ändra hastighet på parallax (cloud, mountain etc) i css så de flyter på snyggt
 
 For the lab:
-
-- how do i scale the svg files such as rabbit and bush?
-- the bush/mushroom is lagging????????
-- after adding the parallax the whole website is lagging... how do i fix this?
-- how do i stop the parallax from "starting over? in different spots and just flow?
+- How do i scale the svg files such as rabbit and bush?
+- The bush/mushroom is lagging????????
+- After adding the parallax the whole website is lagging... how do i fix this?
+- How do i stop the parallax from "starting over? in different spots and just flow?
