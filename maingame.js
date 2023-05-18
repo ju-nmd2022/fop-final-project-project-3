@@ -65,7 +65,7 @@ function generateObstacle() {
   obstacles.appendChild(obstacle);
 
   let obstacleRight = -20;
-  let obstacleBottom = 70;
+  let obstacleBottom = -6;
   let obstacleWidth = 200;
   let obstacleHeight = 200;
 
