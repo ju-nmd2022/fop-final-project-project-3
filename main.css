@@ -109,11 +109,11 @@
 }
 
 .obstacle {
-  background-image: url(images/mushroom.png);
+  background-image: url(images/bee.png);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 75px;
-  height: 75px;
+  /* width: 200px; */
+  /* height: 200px; */
   position: absolute;
   bottom: 70px;
   right: 0;

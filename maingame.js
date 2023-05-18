@@ -1,26 +1,36 @@
-let character = document.getElementById('character');
-let characterJump = document.getElementById('characterJump');
-let characterBottom = parseInt(window.getComputedStyle(character).getPropertyValue('bottom'));
-let characterRight = parseInt(window.getComputedStyle(character).getPropertyValue('right'));
-let characterWidth = parseInt(window.getComputedStyle(character).getPropertyValue('width'));
-let ground = document.getElementById('ground');
-let groundBottom = parseInt(window.getComputedStyle(ground).getPropertyValue('bottom'));
-let groundHeight = parseInt(window.getComputedStyle(ground).getPropertyValue('height'));
+let character = document.getElementById("character");
+let characterJump = document.getElementById("characterJump");
+let characterBottom = parseInt(
+  window.getComputedStyle(character).getPropertyValue("bottom")
+);
+let characterRight = parseInt(
+  window.getComputedStyle(character).getPropertyValue("right")
+);
+let characterWidth = parseInt(
+  window.getComputedStyle(character).getPropertyValue("width")
+);
+let ground = document.getElementById("ground");
+let groundBottom = parseInt(
+  window.getComputedStyle(ground).getPropertyValue("bottom")
+);
+let groundHeight = parseInt(
+  window.getComputedStyle(ground).getPropertyValue("height")
+);
 let isJumping = false;
 let upTime;
 let downTime;
-let displayScore = document.getElementById('score');
+let displayScore = document.getElementById("score");
 let score = 0;
 let finalScore = 0;
 let activeGame = true;
 let remainingLives = 5; // Number of lives remaining
-let lifeLines = document.getElementById('life');
+let lifeLines = document.getElementById("life");
 
 // Jumping function
 function jump() {
   if (isJumping) return;
   character.style.visibility = "hidden";
-  characterJump.style.visibility = "visible"; 
+  characterJump.style.visibility = "visible";
   upTime = setInterval(() => {
     if (characterBottom >= groundHeight + 180) {
       clearInterval(upTime);
@@ -29,14 +39,14 @@ function jump() {
           clearInterval(downTime);
           isJumping = false;
           character.style.visibility = "visible";
-          characterJump.style.visibility = "hidden"; 
+          characterJump.style.visibility = "hidden";
         }
         characterBottom -= 10;
-        character.style.bottom = characterBottom + 'px';
+        character.style.bottom = characterBottom + "px";
       }, 15);
     }
     characterBottom += 10;
-    character.style.bottom = characterBottom + 'px';
+    character.style.bottom = characterBottom + "px";
     isJumping = true;
   }, 15);
 }
@@ -49,47 +59,54 @@ function showScore() {
 
 // Function to generate obstacles
 function generateObstacle() {
-  let obstacles = document.querySelector('.obstacles');
-  let obstacle = document.createElement('div');
-  obstacle.setAttribute('class', 'obstacle');
+  let obstacles = document.querySelector(".obstacles");
+  let obstacle = document.createElement("div");
+  obstacle.setAttribute("class", "obstacle");
   obstacles.appendChild(obstacle);
 
   let obstacleRight = -20;
   let obstacleBottom = 70;
-  let obstacleWidth = 50;
-  let obstacleHeight = 50;
+  let obstacleWidth = 200;
+  let obstacleHeight = 200;
 
   function moveObstacle() {
     obstacleRight += 15;
-    obstacle.style.right = obstacleRight + 'px';
-    obstacle.style.bottom = obstacleBottom + 'px';
-    obstacle.style.width = obstacleWidth + 'px';
-    obstacle.style.height = obstacleHeight + 'px';
-    if (activeGame == true && characterRight >= obstacleRight - characterWidth && characterRight <= obstacleRight && characterBottom <= obstacleBottom + obstacleHeight) {
+    obstacle.style.right = obstacleRight + "px";
+    obstacle.style.bottom = obstacleBottom + "px";
+    obstacle.style.width = obstacleWidth + "px";
+    obstacle.style.height = obstacleHeight + "px";
+    if (
+      activeGame == true &&
+      characterRight >= obstacleRight - characterWidth &&
+      characterRight <= obstacleRight &&
+      characterBottom <= obstacleBottom + obstacleHeight
+    ) {
       // reload();
       remainingLives--; // Reduce the remaining lives
-      if (remainingLives <= 0) 
-      activeGame = false;
+      if (remainingLives <= 0) activeGame = false;
       document.getElementById("end").style.visibility = "visible";
       finalScore = score;
       document.getElementById("endScore").innerHTML = finalScore;
     }
   }
-  
+
   let obstacleInterval = setInterval(moveObstacle, 50);
-  let obstacleTimeout = setTimeout(generateObstacle, Math.floor(Math.random() * 1000) + 400);
+  let obstacleTimeout = setTimeout(
+    generateObstacle,
+    Math.floor(Math.random() * 1000) + 400
+  );
 }
 
 // Main function that manages intervals and event listeners
 function startGame() {
   setInterval(showScore, 100);
   generateObstacle();
-  document.addEventListener('keydown', control);
+  document.addEventListener("keydown", control);
 }
 
 // Function to handle the ArrowUp key for jumping
 function control(e) {
-  if (e.key == 'ArrowUp') {
+  if (e.key == "ArrowUp") {
     jump();
   }
 }
@@ -101,12 +118,8 @@ function reload() {
 
 startGame();
 
-
 // In this version, the startGame() function is the main function that encapsulates the intervals and event listeners. It is responsible for starting the game and managing the intervals for showing the score and generating obstacles. The control() function is also included in the startGame() function, which handles the ArrowUp key event for jumping.
 // By calling the startGame() function, you initiate the game and all the necessary intervals and
-
-
-
 
 // Old code
 // let character = document.getElementById('character')
@@ -158,7 +171,7 @@ startGame();
 
 // setInterval(showScore, 100);
 
-// //this is the random way to display the obstacles. 
+// //this is the random way to display the obstacles.
 // function generateObstacle(){
 //   let obstacles = document.querySelector('.obstacles');
 //   let obstacle = document.createElement('div');
@@ -176,7 +189,7 @@ startGame();
 //     obstacle.style.bottom = obstacleBottom + 'px';
 //     obstacle.style.width = obstacleWidth + 'px';
 //     obstacle.style.height = obstacleHeight + 'px';
-//     if(activeGame == true && characterRight >= obstacleRight - characterWidth && characterRight <= 
+//     if(activeGame == true && characterRight >= obstacleRight - characterWidth && characterRight <=
 //       obstacleRight && characterBottom <= obstacleBottom + obstacleHeight) {
 //       activeGame = false;
 //       document.getElementById("end").style.visibility = "visible";
