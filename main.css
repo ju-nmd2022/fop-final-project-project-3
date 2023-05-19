@@ -68,6 +68,7 @@
   height: 100vh;
   padding: 0;
   margin: 0;
+  top: 0px;
   visibility: visible;
   /* z-index: -1; */
 }
@@ -97,29 +98,9 @@
   animation: moveRight 80s linear infinite;
 }
 
-/* #frame-6 {
-  background-image: url(images/mountains.png);
-  animation: moveRight 15s linear infinite;
-}
-
-#frame-7 {
-  background-image: url(images/clouds.png);
-  animation: moveRight 16s linear infinite;
-}
-
-#frame-8 {
-  background-image: url(images/bluesky.png);
-  animation: moveRight 15s linear infinite;
-} */
-
-/* #frame-9 {
-  background-image: url(images/4.png);
-  animation: moveRight 15s linear infinite;
-} */
-
 @keyframes moveRight {
   100% {
-    transform: translateX(-876px);
+    transform: translateX(-1000px);
   }
 }
 
@@ -130,20 +111,20 @@
   opacity: 0%;
   position: absolute;
   bottom: 0px;
-  visibility: hidden;
+  visibility: visible;
 }
 
 #character {
-  background-image: url(images/avatar.png);
+  background-image: url(images/fairy.png);
   background-repeat: no-repeat;
-  background-size: cover;
-  width: 75px;
-  height: 75px;
+  background-size: contain;
+  width: 200px;
+  height: 200px;
   position: absolute;
-  bottom: 70px;
-  right: calc(100% - 150px);
+  bottom: 200px;
+  right: calc(100% - 300px);
   /* z-index: 1; */
-  visibility: hidden;
+  visibility: visible;
 }
 
 /* #characterJump {
@@ -158,15 +139,18 @@
   /* z-index: 1; */
 /* visibility: hidden;
 } */
-*/ .obstacle {
-  background-image: url(images/bee.png);
+
+.obstacle {
+  background-image: url(images/snail.png);
   background-repeat: no-repeat;
   background-size: contain;
-  /* width: 200px; */
-  /* height: 200px; */
+  width: 200px;
+  height: 200px;
   position: absolute;
   bottom: 70px;
   right: 0;
+  visibility: visible;
+  /* z-index: 1; */
 }
 
 /* Scoreboard at the top of the screen */
@@ -206,7 +190,7 @@ body {
   width: 100%;
   height: 100vh;
   position: absolute;
-  background-image: url(images/bluesky.png);
+  background-image: url(images/1-forest.png);
   background-size: contain;
   visibility: hidden;
   /* z-index: 2; */
