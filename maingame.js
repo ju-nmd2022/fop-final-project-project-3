@@ -1,5 +1,5 @@
 let character = document.getElementById("character");
-let characterJump = document.getElementById("characterJump");
+// let characterJump = document.getElementById("characterJump");
 let characterBottom = parseInt(
   window.getComputedStyle(character).getPropertyValue("bottom")
 );
@@ -26,29 +26,29 @@ let activeGame = true;
 // let remainingLives = 5; // Number of lives remaining
 let lifeLines = document.getElementById("life");
 
-// Jumping function
 function jump() {
   if (isJumping) return;
-  character.style.visibility = "hidden";
-  characterJump.style.visibility = "visible";
   upTime = setInterval(() => {
-    if (characterBottom >= groundHeight + 180) {
+    //how high up the character jumps is the number currently at 300
+    if (characterBottom >= groundHeight + 7) {
       clearInterval(upTime);
       downTime = setInterval(() => {
-        if (characterBottom <= groundHeight + 10) {
+        //the number 110 below makes sure the character lands on the same height as before
+        if (characterBottom <= groundHeight + 110) {
           clearInterval(downTime);
           isJumping = false;
-          character.style.visibility = "visible";
-          characterJump.style.visibility = "hidden";
         }
-        characterBottom -= 10;
+        characterBottom -= 20;
         character.style.bottom = characterBottom + "px";
-      }, 15);
+        //the number below steers how fast the character lands currently at 30
+      }, 30);
     }
-    characterBottom += 10;
+    //how high the character jumps is the number 10 below
+    characterBottom += 300;
     character.style.bottom = characterBottom + "px";
     isJumping = true;
-  }, 15);
+    //the number below steers how fast the character lands currently at 20
+  }, 10);
 }
 
 // Function to show the score
@@ -57,46 +57,46 @@ function showScore() {
   displayScore.innerText = score;
 }
 
-// Function to generate obstacles
-// function generateObstacle() {
-//   let obstacles = document.querySelector(".obstacles");
-//   let obstacle = document.createElement("div");
-//   obstacle.setAttribute("class", "obstacle");
-//   obstacles.appendChild(obstacle);
+//Function to generate obstacles
+function generateObstacle() {
+  let obstacles = document.querySelector(".obstacles");
+  let obstacle = document.createElement("div");
+  obstacle.setAttribute("class", "obstacle");
+  obstacles.appendChild(obstacle);
 
-//   let obstacleRight = -20;
-//   let obstacleBottom = -6;
-//   let obstacleWidth = 200;
-//   let obstacleHeight = 200;
+  let obstacleRight = -200;
+  let obstacleBottom = -30;
+  let obstacleWidth = 200;
+  let obstacleHeight = 200;
 
-//   function moveObstacle() {
-//     obstacleRight += 15;
-//     obstacle.style.right = obstacleRight + "px";
-//     obstacle.style.bottom = obstacleBottom + "px";
-//     obstacle.style.width = obstacleWidth + "px";
-//     obstacle.style.height = obstacleHeight + "px";
-//     if (
-//       activeGame == true &&
-//       characterRight >= obstacleRight - characterWidth &&
-//       characterRight <= obstacleRight &&
-//       characterBottom <= obstacleBottom + obstacleHeight
-//     ) {
-//       // reload();
-//       // remainingLives--; // Reduce the remaining lives
-//       // if (remainingLives <= 0)
-//       activeGame = false;
-//       document.getElementById("end").style.visibility = "visible";
-//       finalScore = score;
-//       document.getElementById("endScore").innerHTML = finalScore;
-//     }
-//   }
+  function moveObstacle() {
+    //Number 10 decides how quick the obstacles move
+    obstacleRight += 10;
+    obstacle.style.right = obstacleRight + "px";
+    obstacle.style.bottom = obstacleBottom + "px";
+    obstacle.style.width = obstacleWidth + "px";
+    obstacle.style.height = obstacleHeight + "px";
+    if (
+      activeGame == true &&
+      characterRight >= obstacleRight - characterWidth &&
+      characterRight <= obstacleRight &&
+      characterBottom <= obstacleBottom + obstacleHeight
+    ) {
+      reload();
+      remainingLives--; // Reduce the remaining lives
+      if (remainingLives <= 0) activeGame = false;
+      document.getElementById("end").style.visibility = "visible";
+      finalScore = score;
+      document.getElementById("endScore").innerHTML = finalScore;
+    }
+  }
 
-//   let obstacleInterval = setInterval(moveObstacle, 50);
-//   let obstacleTimeout = setTimeout(
-//     generateObstacle,
-//     Math.floor(Math.random() * 1000) + 1000
-//   );
-// }
+  let obstacleInterval = setInterval(moveObstacle, 50);
+  let obstacleTimeout = setTimeout(
+    generateObstacle,
+    Math.floor(Math.random() * 3000) + 3000
+  );
+}
 
 // Main function that manages intervals and event listeners
 function startGame() {
