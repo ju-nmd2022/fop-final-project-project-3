@@ -2,16 +2,15 @@ Fix if there's time
 
 - How do we stop the parallax from "starting over? in different spots and just flow?
 - Check if we want five lives to count down before you lose
-- Check if we want the rabbit to be able to collect carrots while playing
+- Check if we want the character to be able to collect objects while playing
+- Fix so that the hearts disappear (lives = 5) when you hit an obstacle and after five times you lose
 
 To do
 
-- Add the jumping rabbit image to appear when you press the up key (when you jump)
-- Make start screen like endscreen to make it easier to explain in the interview. See "end" in html and javascript!
-- Change colors on buttons (and hover buttons), text and background of endscreen + add other things in the endscreen like a passing cloud or something?
-- Change speed on parallax (cloud, mountain etc) in css to make it flow better and that you can see they move in different speeds
+- DONE! --- Make start screen like endscreen to make it easier to explain in the interview. See "end" in html and javascript!
+- DONE! --- Change colors on buttons (and hover buttons), text and background of endscreen + add other things in the endscreen like a passing cloud or something?
+- DONE! --- Change speed on parallax (cloud, mountain etc) in css to make it flow better and that you can see they move in different speeds
 - Connect startscreen with main game like endscreen and change startbutton from reload() to take it back to the startscreen instead
-- Fix so that the hearts disappear (lives = 5) when you hit an obstacle and after five times you lose
 - Fix trailer.
 
 Ida has:
