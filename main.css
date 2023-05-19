@@ -192,7 +192,7 @@ body {
   position: absolute;
   background-image: url(images/1-forest.png);
   background-size: contain;
-  visibility: hidden;
+  visibility: visible;
   /* z-index: 2; */
 }
 
@@ -206,7 +206,8 @@ body {
   justify-content: center;
   font-size: 90px;
   font-weight: bold;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 #container {
@@ -219,16 +220,17 @@ body {
   margin-top: 50px;
   font-size: 20px;
   font-weight: bold;
-  background-color: white;
+  background-color: #f1ecd5;
+  color: #657d0a;
   border: none;
 }
 
 .startOverButton:hover {
-  height: 60px;
-  width: 320px;
-  background-color: antiquewhite;
+  height: 55px;
+  width: 300px;
+  background-color: #657d0a;
   cursor: pointer;
-  color: black;
+  color: #f1ecd5;
 }
 
 .goToStartButton {
@@ -237,109 +239,33 @@ body {
   margin-top: 50px;
   font-size: 20px;
   font-weight: bold;
-  background-color: white;
+  background-color: #f1ecd5;
+  color: #657d0a;
   border: none;
 }
 
 .goToStartButton:hover {
-  height: 60px;
-  width: 320px;
-  background-color: antiquewhite;
+  height: 55px;
+  width: 300px;
+  background-color: #657d0a;
+  color: #f1ecd5;
   cursor: pointer;
-  color: black;
 }
 
 .gameOverText {
   font-size: 80px;
   font-weight: bold;
-  color: white;
+  color: #f1ecd5;
 }
 
 .resultText {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
-  color: white;
+  color: #f1ecd5;
 }
 
 .endScore {
   font-size: 50px;
   font-weight: bold;
-  color: darkblue;
-}
-
-/* startgame page */
-.content {
-  background-color: #ffffff;
-  position: fixed;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-.paragraph1 {
-  padding-inline-start: 20px;
-  padding-inline-end: 20px;
-  text-align: center;
-}
-
-.paragraph2 {
-  padding-inline-start: 20px;
-  padding-inline-end: 20px;
-  text-align: center;
-}
-
-.button1 {
-  background-color: #555;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  margin: 3%;
-  position: fixed;
-  top: 50%;
-  right: 40%;
-  cursor: pointer;
-}
-
-.button1:hover {
-  opacity: 75%;
-}
-
-.button2 {
-  background-color: #555;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  margin: 3%;
-  position: fixed;
-  top: 50%;
-  right: 40%;
-  cursor: pointer;
-}
-
-.button2:hover {
-  opacity: 75%;
-}
-
-.button3 {
-  background-color: #555;
-  color: #ffffff;
-  text-align: center;
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  margin: 3%;
-  position: fixed;
-  top: 50%;
-  right: 0%;
-  cursor: pointer;
-}
-
-.button3:hover {
-  opacity: 75%;
+  color: #eae551;
 }

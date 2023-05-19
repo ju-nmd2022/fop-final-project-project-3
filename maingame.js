@@ -29,8 +29,8 @@ let lifeLines = document.getElementById("life");
 function jump() {
   if (isJumping) return;
   upTime = setInterval(() => {
-    //how high up the character jumps is the number currently at 300
-    if (characterBottom >= groundHeight + 7) {
+    //how high up the character jumps is the number currently at 70
+    if (characterBottom >= groundHeight + 70) {
       clearInterval(upTime);
       downTime = setInterval(() => {
         //the number 110 below makes sure the character lands on the same height as before
@@ -40,15 +40,15 @@ function jump() {
         }
         characterBottom -= 20;
         character.style.bottom = characterBottom + "px";
-        //the number below steers how fast the character lands currently at 30
-      }, 30);
+        //the number below steers how fast the character lands currently at 70
+      }, 70);
     }
-    //how high the character jumps is the number 10 below
-    characterBottom += 300;
+    //how high the character jumps is the number 400 below
+    characterBottom += 400;
     character.style.bottom = characterBottom + "px";
     isJumping = true;
-    //the number below steers how fast the character lands currently at 20
-  }, 10);
+    //the number below steers how fast the character lands currently at 70 ??? Again???
+  }, 70);
 }
 
 // Function to show the score
@@ -68,6 +68,17 @@ function generateObstacle() {
   let obstacleBottom = -30;
   let obstacleWidth = 200;
   let obstacleHeight = 200;
+
+  const htmlImg = document.getElementById("displayImg");
+
+  function setImage() {
+    let random = Math.random();
+    if (random < 0.5) {
+      htmlImg.setAttribute("src", "snail.png");
+    } else {
+      htmlImg.setAttribute("src", "grasshopper");
+    }
+  }
 
   function moveObstacle() {
     //Number 10 decides how quick the obstacles move
