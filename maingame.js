@@ -24,31 +24,32 @@ let score = 0;
 let finalScore = 0;
 let activeGame = true;
 // let remainingLives = 5; // Number of lives remaining
-let lifeLines = document.getElementById("life");
+// let lifeLines = document.getElementById("life");
 
 function jump() {
   if (isJumping) return;
   upTime = setInterval(() => {
-    //how high up the character jumps is the number currently at 70
-    if (characterBottom >= groundHeight + 70) {
+    //how high up the character jumps is the number currently at 350
+    if (characterBottom >= groundHeight + 350) {
       clearInterval(upTime);
       downTime = setInterval(() => {
-        //the number 110 below makes sure the character lands on the same height as before
-        if (characterBottom <= groundHeight + 110) {
+        //the number 90 below makes sure the character lands on the same height
+        if (characterBottom <= groundHeight + 90) {
           clearInterval(downTime);
           isJumping = false;
         }
-        characterBottom -= 20;
+        //the number 4 below decides how quickly the character falls back down again
+        characterBottom -= 4;
         character.style.bottom = characterBottom + "px";
-        //the number below steers how fast the character lands currently at 70
-      }, 70);
+        //the number below steers how fast the character lands currently at 15 ------------ what's the difference between this and "characterBottom" above then?
+      }, 15);
     }
-    //how high the character jumps is the number 400 below
-    characterBottom += 400;
+    //how fast the character jumps is the number 4 below
+    characterBottom += 4;
     character.style.bottom = characterBottom + "px";
     isJumping = true;
-    //the number below steers how fast the character lands currently at 70 ??? Again???
-  }, 70);
+    //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?
+  }, 15);
 }
 
 // Function to show the score
@@ -68,17 +69,6 @@ function generateObstacle() {
   let obstacleBottom = -30;
   let obstacleWidth = 200;
   let obstacleHeight = 200;
-
-  const htmlImg = document.getElementById("displayImg");
-
-  function setImage() {
-    let random = Math.random();
-    if (random < 0.5) {
-      htmlImg.setAttribute("src", "snail.png");
-    } else {
-      htmlImg.setAttribute("src", "grasshopper");
-    }
-  }
 
   function moveObstacle() {
     //Number 10 decides how quick the obstacles move
