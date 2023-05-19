@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="main.css" />
 </head>
 <body>
+    <div class="start" id="start">
+        <div class="textResultContainer">
+            <div class="startText">Escape Game</div>
+            <div class="container">
+                <button class="startButton" onclick="startGame();">Start</button>
+            </div>
+    </div>
+
     <div class="scoreboard">
         <h3 class="scoreCounter">Score: <span id="score">0</span></h3>
         <div id="lifelines">
@@ -18,7 +26,8 @@
           <span class="life"></span>
         </div>
       </div>
-        <div class="background_layer">       
+        <div class="background_layer">    
+        <!-- <div class="background_layer" id="frame-9"></div>    -->
         <div class="background_layer" id="frame-8"></div>
         <div class="background_layer" id="frame-7"></div>
         <div class="background_layer" id="frame-6"></div>

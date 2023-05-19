@@ -23,7 +23,7 @@ let displayScore = document.getElementById("score");
 let score = 0;
 let finalScore = 0;
 let activeGame = true;
-let remainingLives = 5; // Number of lives remaining
+// let remainingLives = 5; // Number of lives remaining
 let lifeLines = document.getElementById("life");
 
 // Jumping function
@@ -58,44 +58,45 @@ function showScore() {
 }
 
 // Function to generate obstacles
-function generateObstacle() {
-  let obstacles = document.querySelector(".obstacles");
-  let obstacle = document.createElement("div");
-  obstacle.setAttribute("class", "obstacle");
-  obstacles.appendChild(obstacle);
+// function generateObstacle() {
+//   let obstacles = document.querySelector(".obstacles");
+//   let obstacle = document.createElement("div");
+//   obstacle.setAttribute("class", "obstacle");
+//   obstacles.appendChild(obstacle);
 
-  let obstacleRight = -20;
-  let obstacleBottom = -6;
-  let obstacleWidth = 200;
-  let obstacleHeight = 200;
+//   let obstacleRight = -20;
+//   let obstacleBottom = -6;
+//   let obstacleWidth = 200;
+//   let obstacleHeight = 200;
 
-  function moveObstacle() {
-    obstacleRight += 15;
-    obstacle.style.right = obstacleRight + "px";
-    obstacle.style.bottom = obstacleBottom + "px";
-    obstacle.style.width = obstacleWidth + "px";
-    obstacle.style.height = obstacleHeight + "px";
-    if (
-      activeGame == true &&
-      characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight &&
-      characterBottom <= obstacleBottom + obstacleHeight
-    ) {
-      // reload();
-      remainingLives--; // Reduce the remaining lives
-      if (remainingLives <= 0) activeGame = false;
-      document.getElementById("end").style.visibility = "visible";
-      finalScore = score;
-      document.getElementById("endScore").innerHTML = finalScore;
-    }
-  }
+//   function moveObstacle() {
+//     obstacleRight += 15;
+//     obstacle.style.right = obstacleRight + "px";
+//     obstacle.style.bottom = obstacleBottom + "px";
+//     obstacle.style.width = obstacleWidth + "px";
+//     obstacle.style.height = obstacleHeight + "px";
+//     if (
+//       activeGame == true &&
+//       characterRight >= obstacleRight - characterWidth &&
+//       characterRight <= obstacleRight &&
+//       characterBottom <= obstacleBottom + obstacleHeight
+//     ) {
+//       // reload();
+//       // remainingLives--; // Reduce the remaining lives
+//       // if (remainingLives <= 0)
+//       activeGame = false;
+//       document.getElementById("end").style.visibility = "visible";
+//       finalScore = score;
+//       document.getElementById("endScore").innerHTML = finalScore;
+//     }
+//   }
 
-  let obstacleInterval = setInterval(moveObstacle, 50);
-  let obstacleTimeout = setTimeout(
-    generateObstacle,
-    Math.floor(Math.random() * 1000) + 400
-  );
-}
+//   let obstacleInterval = setInterval(moveObstacle, 50);
+//   let obstacleTimeout = setTimeout(
+//     generateObstacle,
+//     Math.floor(Math.random() * 1000) + 1000
+//   );
+// }
 
 // Main function that manages intervals and event listeners
 function startGame() {
