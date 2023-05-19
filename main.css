@@ -18,7 +18,7 @@
   position: absolute;
   background-image: url(images/1-forest.png);
   background-size: cover;
-  visibility: visible;
+  visibility: hidden;
   z-index: 1;
 }
 
@@ -49,6 +49,13 @@
   color: #f1ecd5;
 }
 
+.descriptionText {
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  color: #f1ecd5;
+}
+
 /* Parallax animation */
 .background_layer {
   position: absolute;
@@ -61,36 +68,36 @@
   height: 100vh;
   padding: 0;
   margin: 0;
-  visibility: hidden;
+  visibility: visible;
   /* z-index: -1; */
 }
 
 #frame-1 {
-  background-image: url(images/grassfront.png);
-  animation: moveRight 11s linear infinite;
+  background-image: url(images/1-ground.png);
+  animation: moveRight 10s linear infinite;
 }
 
 #frame-2 {
-  background-image: url(images/tree2.png);
-  animation: moveRight 12s linear infinite;
+  background-image: url(images/1-foreground.png);
+  animation: moveRight 15s linear infinite;
 }
 
 #frame-3 {
-  background-image: url(images/tree1.png);
-  animation: moveRight 14s linear infinite;
+  background-image: url(images/1-middleground.png);
+  animation: moveRight 30s linear infinite;
 }
 
 #frame-4 {
-  background-image: url(images/bushes.png);
-  animation: moveRight 14s linear infinite;
+  background-image: url(images/1-background.png);
+  animation: moveRight 50s linear infinite;
 }
 
 #frame-5 {
-  background-image: url(images/grassback.png);
-  animation: moveRight 14s linear infinite;
+  background-image: url(images/1-sky.png);
+  animation: moveRight 80s linear infinite;
 }
 
-#frame-6 {
+/* #frame-6 {
   background-image: url(images/mountains.png);
   animation: moveRight 15s linear infinite;
 }
@@ -103,7 +110,7 @@
 #frame-8 {
   background-image: url(images/bluesky.png);
   animation: moveRight 15s linear infinite;
-}
+} */
 
 /* #frame-9 {
   background-image: url(images/4.png);
