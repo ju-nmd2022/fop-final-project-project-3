@@ -23,80 +23,95 @@ let displayScore = document.getElementById("score");
 let score = 0;
 let finalScore = 0;
 let activeGame = true;
-// let remainingLives = 5; // Number of lives remaining
-// let lifeLines = document.getElementById("life");
+var startScreen = document.getElementById("start");
+var gameScreen = document.getElementById("game");
 
-function jump() {
-  if (isJumping) return;
-  upTime = setInterval(() => {
-    //how high up the character jumps is the number currently at 350
-    if (characterBottom >= groundHeight + 350) {
-      clearInterval(upTime);
-      downTime = setInterval(() => {
-        //the number 90 below makes sure the character lands on the same height
-        if (characterBottom <= groundHeight + 90) {
-          clearInterval(downTime);
-          isJumping = false;
-        }
-        //the number 4 below decides how quickly the character falls back down again
-        characterBottom -= 4;
-        character.style.bottom = characterBottom + "px";
-        //the number below steers how fast the character lands currently at 15 ------------ what's the difference between this and "characterBottom" above then?
-      }, 15);
-    }
-    //how fast the character jumps is the number 4 below
-    characterBottom += 4;
-    character.style.bottom = characterBottom + "px";
-    isJumping = true;
-    //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?
-  }, 15);
+function startGame() {
+  // Hide the start screen
+  startScreen.style.display = "none";
+
+  // Show the game screen
+  gameScreen.style.display = "block";
+
+  // Call our game initialization code or start the game here
+  playGame();
 }
 
-// Function to show the score
-function showScore() {
-  score++;
-  displayScore.innerText = score;
-}
+document.addEventListener("DOMContentLoaded", startGame);
 
-//Function to generate obstacles
-function generateObstacle() {
-  let obstacles = document.querySelector(".obstacles");
-  let obstacle = document.createElement("div");
-  obstacle.setAttribute("class", "obstacle");
-  obstacles.appendChild(obstacle);
-
-  let obstacleRight = -200;
-  let obstacleBottom = -30;
-  let obstacleWidth = 200;
-  let obstacleHeight = 200;
-
-  function moveObstacle() {
-    //Number 10 decides how quick the obstacles move
-    obstacleRight += 10;
-    obstacle.style.right = obstacleRight + "px";
-    obstacle.style.bottom = obstacleBottom + "px";
-    obstacle.style.width = obstacleWidth + "px";
-    obstacle.style.height = obstacleHeight + "px";
-    if (
-      activeGame == true &&
-      characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight &&
-      characterBottom <= obstacleBottom + obstacleHeight
-    ) {
-      reload();
-      remainingLives--; // Reduce the remaining lives
-      if (remainingLives <= 0) activeGame = false;
-      document.getElementById("end").style.visibility = "visible";
-      finalScore = score;
-      document.getElementById("endScore").innerHTML = finalScore;
-    }
+function playGame() {
+  // Our game initialization code goes here
+  function jump() {
+    if (isJumping) return;
+    upTime = setInterval(() => {
+      //how high up the character jumps is the number currently at 350
+      if (characterBottom >= groundHeight + 350) {
+        clearInterval(upTime);
+        downTime = setInterval(() => {
+          //the number 90 below makes sure the character lands on the same height
+          if (characterBottom <= groundHeight + 90) {
+            clearInterval(downTime);
+            isJumping = false;
+          }
+          //the number 5 below decides how quickly the character falls back down again
+          characterBottom -= 5;
+          character.style.bottom = characterBottom + "px";
+          //the number below steers how fast the character lands currently at 15 ------------ what's the difference between this and "characterBottom" above then?
+        }, 15);
+      }
+      //how fast the character jumps is the number 5 below
+      characterBottom += 5;
+      character.style.bottom = characterBottom + "px";
+      isJumping = true;
+      //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?
+    }, 15);
   }
 
-  let obstacleInterval = setInterval(moveObstacle, 50);
-  let obstacleTimeout = setTimeout(
-    generateObstacle,
-    Math.floor(Math.random() * 3000) + 3000
-  );
+  // Function to show the score
+  function showScore() {
+    score++;
+    displayScore.innerText = score;
+  }
+
+  //Function to generate obstacles
+  function generateObstacle() {
+    let obstacles = document.querySelector(".obstacles");
+    let obstacle = document.createElement("div");
+    obstacle.setAttribute("class", "obstacle");
+    obstacles.appendChild(obstacle);
+
+    let obstacleRight = -200;
+    let obstacleBottom = -30;
+    let obstacleWidth = 200;
+    let obstacleHeight = 200;
+
+    function moveObstacle() {
+      //Number 10 decides how quick the obstacles move
+      obstacleRight += 10;
+      obstacle.style.right = obstacleRight + "px";
+      obstacle.style.bottom = obstacleBottom + "px";
+      obstacle.style.width = obstacleWidth + "px";
+      obstacle.style.height = obstacleHeight + "px";
+      if (
+        activeGame == true &&
+        characterRight >= obstacleRight - characterWidth &&
+        characterRight <= obstacleRight &&
+        characterBottom <= obstacleBottom + obstacleHeight
+      ) {
+        // reload();
+        activeGame = false;
+        document.getElementById("end").style.visibility = "visible";
+        finalScore = score;
+        document.getElementById("endScore").innerHTML = finalScore;
+      }
+    }
+
+    let obstacleInterval = setInterval(moveObstacle, 50);
+    let obstacleTimeout = setTimeout(
+      generateObstacle,
+      Math.floor(Math.random() * 3000) + 3000
+    );
+  }
 }
 
 // Main function that manages intervals and event listeners

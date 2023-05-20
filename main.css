@@ -1,16 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
-
-/* #game {
-  grid-column: 1/1;
-  grid-row: 1/1;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-} */
 
 .start {
   width: 100%;
@@ -58,6 +50,10 @@
   color: #f1ecd5;
 }
 
+#game {
+  display: none;
+}
+
 /* Parallax animation */
 .background_layer {
   position: absolute;
@@ -71,8 +67,8 @@
   padding: 0;
   margin: 0;
   top: 0px;
-  visibility: hidden;
-  /* z-index: -1; */
+  visibility: visible;
+  /* z-index: 1; */
 }
 
 #frame-1 {
@@ -126,7 +122,7 @@
   bottom: 150px;
   right: calc(100% - 300px);
   /* z-index: 1; */
-  visibility: hidden;
+  visibility: visible;
 }
 
 /* #characterJump {
@@ -151,12 +147,12 @@
   position: absolute;
   bottom: 70px;
   right: 0;
-  visibility: hidden;
+  visibility: visible;
   /* z-index: 1; */
 }
 
 /* Scoreboard at the top of the screen */
-/* #scoreboard {
+#scoreboard {
   size: contain;
   position: absolute;
   top: 20px;
@@ -164,24 +160,15 @@
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 24px;
-} */
+}
 
-/* .scoreCounter {
+.scoreCounter {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-top: 20px;
   margin-left: 20px;
-  visibility: hidden;
-  z-index: 10;
-} */
-
-/* .life {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  background-image: url(images/heart.png);
-  background-size: contain;
-  margin-right: 5px;
-} */
+  visibility: visible;
+  /* z-index: 10; */
+}
 
 body {
   display: grid;
@@ -194,7 +181,7 @@ body {
   background-image: url(images/1-forest.png);
   background-size: contain;
   visibility: hidden;
-  /* z-index: 2; */
+  z-index: 2;
 }
 
 .textResultContainer {

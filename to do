@@ -11,7 +11,12 @@ To do
 - DONE! --- Change colors on buttons (and hover buttons), text and background of endscreen + add other things in the endscreen like a passing cloud or something?
 - DONE! --- Change speed on parallax (cloud, mountain etc) in css to make it flow better and that you can see they move in different speeds
 - Connect startscreen with main game like endscreen and change startbutton from reload() to take it back to the startscreen instead
+<<<<<<< Updated upstream
+=======
+- Fix so that the hearts disappear (lives = 5) when you hit an obstacle and after five times you lose.
+>>>>>>> Stashed changes
 - Fix trailer.
+- score color should be white i think and maybe a bit bigger? also maybe have the same top margin as the hearts
 
 Ida has:
 
