@@ -23,95 +23,144 @@ let displayScore = document.getElementById("score");
 let score = 0;
 let finalScore = 0;
 let activeGame = true;
-var startScreen = document.getElementById("start");
-var gameScreen = document.getElementById("game");
+let gameOver = false; // New variable to track game state
 
-function startGame() {
-  // Hide the start screen
-  startScreen.style.display = "none";
+// function startGame() {
+//   var startScreen = document.getElementById("start");
+//   var gameScreen = document.getElementById("game");
+//   // Hide the start screen
+//   startScreen.style.display = "none";
 
-  // Show the game screen
-  gameScreen.style.display = "block";
+//   // Show the game screen
+//   gameScreen.style.display = "block";
 
-  // Call our game initialization code or start the game here
-  playGame();
+//   // Call our game initialization code or start the game here
+//   playGame();
+// }
+
+// document.addEventListener("DOMContentLoaded", startGame);
+
+// function playGame() {
+
+// }
+
+function jump() {
+  if (isJumping) return;
+  upTime = setInterval(() => {
+    //how high up the character jumps is the number currently at 350
+    if (characterBottom >= groundHeight + 350) {
+      clearInterval(upTime);
+      downTime = setInterval(() => {
+        //the number 90 below makes sure the character lands on the same height
+        if (characterBottom <= groundHeight + 90) {
+          clearInterval(downTime);
+          isJumping = false;
+        }
+        //Character bottom steers the fact that the character will move back down automatically. without this number the character moves up but never goes back down.
+        characterBottom -= 5;
+        character.style.bottom = characterBottom + "px";
+        //the number below steers to slow down the speed of the landing of the character.
+      }, 15);
+    }
+    //how fast the character jumps is the number 5 below
+    characterBottom += 5;
+    character.style.bottom = characterBottom + "px";
+    isJumping = true;
+    //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?
+  }, 15);
 }
 
-document.addEventListener("DOMContentLoaded", startGame);
-
-function playGame() {
-  // Our game initialization code goes here
-  function jump() {
-    if (isJumping) return;
-    upTime = setInterval(() => {
-      //how high up the character jumps is the number currently at 350
-      if (characterBottom >= groundHeight + 350) {
-        clearInterval(upTime);
-        downTime = setInterval(() => {
-          //the number 90 below makes sure the character lands on the same height
-          if (characterBottom <= groundHeight + 90) {
-            clearInterval(downTime);
-            isJumping = false;
-          }
-          //the number 5 below decides how quickly the character falls back down again
-          characterBottom -= 5;
-          character.style.bottom = characterBottom + "px";
-          //the number below steers how fast the character lands currently at 15 ------------ what's the difference between this and "characterBottom" above then?
-        }, 15);
-      }
-      //how fast the character jumps is the number 5 below
-      characterBottom += 5;
-      character.style.bottom = characterBottom + "px";
-      isJumping = true;
-      //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?
-    }, 15);
+// Function to show the score
+function showScore() {
+  if (gameOver) return;
+  score++;
+  displayScore.innerText = score;
+  //change score from 100 to 600!!!! 
+  if (score >= 100) {
+    // Call the function that handles winning the game
+    winGame();
   }
+}
 
-  // Function to show the score
-  function showScore() {
-    score++;
-    displayScore.innerText = score;
-  }
+//Function to generate a second obstacle
+// function generateObstacleTwo() {
+//   let obstaclesTwo = document.querySelector(".obstaclesTwo");
+//   let obstacleTwo = document.createElement("div");
+//   obstacleTwo.setAttribute("class", "obstaclesTwo");
+//   obstaclesTwo.appendChild(obstacleTwo);
 
-  //Function to generate obstacles
-  function generateObstacle() {
-    let obstacles = document.querySelector(".obstacles");
-    let obstacle = document.createElement("div");
-    obstacle.setAttribute("class", "obstacle");
-    obstacles.appendChild(obstacle);
+//   let obstacleTwoRight = -200;
+//   let obstacleTwoBottom = -30;
+//   let obstacleTwoWidth = 200;
+//   let obstacleTwoHeight = 200;
 
-    let obstacleRight = -200;
-    let obstacleBottom = -30;
-    let obstacleWidth = 200;
-    let obstacleHeight = 200;
+//   function moveObstacleTwo() {
+//     //Number 10 decides how quick the obstacles move
+//     obstacleTwoRight += 10;
+//     obstacleTwo.style.right = obstacleTwoRight + "px";
+//     obstacleTwo.style.bottom = obstacleTwoBottom + "px";
+//     obstacleTwo.style.width = obstacleTwoWidth + "px";
+//     obstacleTwo.style.height = obstacleTwoHeight + "px";
+//     // Check for collision using the modified hitbox values
+//     if (
+//       activeGame == true &&
+//       characterRight >= obstacleTwoRight - characterWidth &&
+//       characterRight <= obstacleTwoRight &&
+//       characterBottom <= obstacleTwoBottom + obstacleTwoHeight
+//     ) {
+//       gameOver = true;
+//       activeGame = false;
+//       document.getElementById("end").style.visibility = "visible";
+//       finalScore = score;
+//       document.getElementById("endScore").innerHTML = finalScore;
+//     }
+//   }
 
-    function moveObstacle() {
-      //Number 10 decides how quick the obstacles move
-      obstacleRight += 10;
-      obstacle.style.right = obstacleRight + "px";
-      obstacle.style.bottom = obstacleBottom + "px";
-      obstacle.style.width = obstacleWidth + "px";
-      obstacle.style.height = obstacleHeight + "px";
-      if (
-        activeGame == true &&
-        characterRight >= obstacleRight - characterWidth &&
-        characterRight <= obstacleRight &&
-        characterBottom <= obstacleBottom + obstacleHeight
-      ) {
-        // reload();
-        activeGame = false;
-        document.getElementById("end").style.visibility = "visible";
-        finalScore = score;
-        document.getElementById("endScore").innerHTML = finalScore;
-      }
+//   let obstacleTwoInterval = setInterval(moveObstacleTwo, 100);
+//   let obstacleTwoTimeout = setTimeout(
+//     generateObstacleTwo,
+//     Math.floor(Math.random() * 3000) + 4000
+//   );
+// }
+
+//Function to generate the snail
+function generateObstacle() {
+  let obstacles = document.querySelector(".obstacles");
+  let obstacle = document.createElement("div");
+  obstacle.setAttribute("class", "obstacle");
+  obstacles.appendChild(obstacle);
+
+  let obstacleRight = -270;
+  let obstacleBottom = -30;
+  let obstacleWidth = 200;
+  let obstacleHeight = 200;
+
+  function moveObstacle() {
+    //Number 10 decides how quick the obstacles move
+    obstacleRight += 10;
+    obstacle.style.right = obstacleRight + "px";
+    obstacle.style.bottom = obstacleBottom + "px";
+    obstacle.style.width = obstacleWidth + "px";
+    obstacle.style.height = obstacleHeight + "px";
+    if (
+      activeGame == true &&
+      characterRight >= obstacleRight - characterWidth &&
+      characterRight <= obstacleRight &&
+      characterBottom <= obstacleBottom + obstacleHeight
+    ) {
+      gameOver = true;
+      activeGame = false;
+      document.getElementById("end").style.visibility = "visible";
+      finalScore = score;
+      document.getElementById("endScore").innerHTML = finalScore;
     }
-
-    let obstacleInterval = setInterval(moveObstacle, 50);
-    let obstacleTimeout = setTimeout(
-      generateObstacle,
-      Math.floor(Math.random() * 3000) + 3000
-    );
   }
+
+  let obstacleInterval = setInterval(moveObstacle, 50);
+  let obstacleTimeout = setTimeout(
+    generateObstacle,
+    Math.floor(Math.random() * 4000) + 3000
+  );
 }
 
 // Main function that manages intervals and event listeners
@@ -126,6 +175,13 @@ function control(e) {
   if (e.key == "ArrowUp") {
     jump();
   }
+}
+
+function winGame() {
+  // Display a message or perform any other actions for winning the game
+  gameOver = true;
+  activeGame = false;
+  document.getElementById("win").style.visibility = "visible";
 }
 
 // Function to reload the page

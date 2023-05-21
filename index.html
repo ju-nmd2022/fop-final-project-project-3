@@ -11,10 +11,29 @@
     <div class="start" id="start">
         <div class="textResultContainer">
             <div class="startText">Escape Game</div>
-            <div class="descriptionText">The magical forest has been cursed by a warlock. He is turning the small and innocent insects into poisonous giants.<br>As the forest fairy, it is your job to save your home and all of its habitants from the curse, before the whole forest dies from the poison.<br>Press the up arrow to avoid the venomous insects to reach the warlock in time!</div>
+            <div class="descriptionText">The magical forest has been cursed by a warlock. He is turning the small and innocent insects into poisonous giants.<br>As the forest fairy, it is your job to save your home and all of its habitants from the curse, before the whole forest dies from the poison.<br>Press the up arrow to avoid the venomous insects to reach the warlock in time! You must score 600 to win!</div>
             <div class="container">
                 <button class="startButton" onclick="startGame();">START</button>
             </div>
+    </div>
+    <div class="end" id="end">
+        <div class="textResultContainer">
+            <div class="gameOverText">Game Over</div>
+            <div class="resultText">Your Score</div>
+            <div class="endScore" id="endScore">0</div>
+            <div class="container">
+                <button class="startOverButton" onclick="reload();">TRY AGAIN</button>
+            </div>
+        </div>
+    </div>
+    <div class="win" id="win">
+        <div class="textResultContainer">
+            <div class="winText">You Win!</div>
+            <div class="descriptionText">You got to the warlock in time to save your home and all of its habitants from the curse. Defeating the warlock, you managed to lift the curse.</div>
+            <div class="container">
+                <button class="startOverButton" onclick="reload();">PLAY AGAIN</button>
+            </div>
+        </div>
     </div>
       <div class="game" id="game">
         <div class="scoreboard">
@@ -24,25 +43,14 @@
         <div id="character"></div>
         <div id="characterJump"></div>
         <div class="obstacles"></div>
-        <img id="displayImg"/>
+        <!-- <div class="obstacleTwo"></div> -->
+        <!-- <img id="displayImg"/> -->
         <div class="background_layer">    
             <div class="background_layer" id="frame-5"></div>
             <div class="background_layer" id="frame-4"></div>
             <div class="background_layer" id="frame-3"></div>
             <div class="background_layer" id="frame-2"></div>
             <div class="background_layer" id="frame-1"></div>
-        </div>
-    </div>
-    <div class="end" id="end">
-        <div class="textResultContainer">
-            <div class="gameOverText">Game Over</div>
-            <div class="resultText">Your Score</div>
-            <div class="endScore" id="endScore">0</div>
-            <div class="container">
-                <button class="startOverButton" onclick="reload();">TRY AGAIN</button>
-                <!-- change so that the start button onclick takes you to start page -->
-                <button class="goToStartButton" onclick="reload();">GO TO START</button>
-            </div>
         </div>
     </div>
 <script src="maingame.js"></script>
