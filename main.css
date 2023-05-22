@@ -8,10 +8,10 @@
   width: 100%;
   height: 100vh;
   position: absolute;
-  background-image: url(images/startscreen1.png);
+  background-image: url(images/failedscreen1.png);
   background-size: cover;
   visibility: hidden;
-  z-index: 1;
+  z-index: 20;
 }
 
 .startButton {
@@ -123,6 +123,7 @@
   right: calc(100% - 300px);
   z-index: 1;
   visibility: visible;
+  animation: float 2s ease-in-out infinite;
 }
 
 /* #characterJump {
@@ -147,38 +148,24 @@
   position: absolute;
   bottom: 70px;
   right: 0;
+  z-index: 1;
   visibility: visible;
 }
-
-/* .obstacleTwo {
-  background-image: url(images/bug.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  visibility: visible;
-} */
 
 /* Scoreboard at the top of the screen */
-#scoreboard {
+/* #scoreboard {
   size: contain;
   position: absolute;
-  top: 20px;
-  left: 20px;
-  color: white;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 24px;
-}
+} */
 
 .scoreCounter {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-top: 20px;
   margin-left: 20px;
+  font-size: 40px;
+  color: white;
   visibility: visible;
-  z-index: 2;
+  z-index: 3;
 }
 
 body {
@@ -192,7 +179,7 @@ body {
   background-image: url(images/failedscreen1.png);
   background-size: contain;
   visibility: hidden;
-  z-index: 20;
+  z-index: 10;
 }
 
 .textResultContainer {
@@ -273,8 +260,8 @@ body {
   width: 100%;
   height: 100vh;
   position: absolute;
-  background-image: url(images/winscreen1.png);
-  background-size: contain;
+  background-image: url(images/failedscreen1.png);
+  background-size: cover;
   visibility: hidden;
   z-index: 20;
 }
@@ -283,4 +270,65 @@ body {
   font-size: 80px;
   font-weight: bold;
   color: #f1ecd5;
+}
+
+.fairyFloatLose {
+  background-image: url(images/fairy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  bottom: 150px;
+  right: calc(100% - 500px);
+  /* transform: translatey(0px); */
+  animation: float 4s ease-in-out infinite;
+  z-index: 15;
+  visibility: hidden;
+}
+
+.fairyFloatWin {
+  background-image: url(images/fairy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  bottom: 150px;
+  right: calc(100% - 500px);
+  /* z-index: 1; */
+  /* visibility: visible; */
+  /* z-index: 21; */
+  transform: translate(-50%, -50%);
+  transform: translatey(0px);
+  animation: float 4s ease-in-out infinite;
+}
+
+.fairyFloatStart {
+  background-image: url(images/fairy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  bottom: 150px;
+  right: calc(100% - 500px);
+  /* z-index: 1; */
+  /* visibility: visible; */
+  /* z-index: 21; */
+  transform: translate(-50%, -50%);
+  transform: translatey(0px);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-30px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }

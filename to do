@@ -1,12 +1,21 @@
 To do
 
-- The snail at first shows on the right of the screen and gets all morphed before appearing as it should. this happened to me before and eveline helped me but it had to do with the background-repeat: no-repeat; but this time it doesn't work...
+Inför labb:
+
+- Check if we want more than one obstacle (insect) to appear or randomize pictures? Math.Random for it possibly.
+- Rename obstacle to insects?
+- The snail at first shows on the right of the screen and gets all morphed before appearing as it should. this happened to me before and eveline helped me but it had to do with the background-repeat: no-repeat; but this time it doesn't work... it might have to do with the z-index...
 - I feel that the fairy doesn't collide with the snail when it should but i am unsure where to fix that.
-- Connect startscreen with main game like endscreen
-- Stop the parallax from "starting over in different spots and just flow
+- Stop the parallax from starting over in different spots and just flow
+- Make the floating keyframe work for the fairies in the start, win or lose screens cause right now if we comment them in again there is no collision happening between the fairy and the snail. It might have to do with where the code is positioned in the html or if the z-index makes a difference to all of the game functions in the css...
+
+Nelia
+
 - Fix trailer
-- Check if we want the character to be able to collect objects while playing
-- Check if we want more than one obstacle (insect) to appear or randomize pictures?
-- How to put the "lose game functions” into its own function rather than under move obstacles function for it to make more sense?
-- Rename obstacle to snail.
-- Move up the text boxes in the start game and win game screens for the warlock and the fairy to be more visible on the screen.
+- Connect startscreen with main game like endscreen
+
+Ida
+
+- Fix logo
+- Fix preview
+- How to put the "lose game functions” into its own function rather than under move obstacles function for it to make more sense? CHECK

@@ -23,26 +23,7 @@ let displayScore = document.getElementById("score");
 let score = 0;
 let finalScore = 0;
 let activeGame = true;
-let gameOver = false; // New variable to track game state
-
-// function startGame() {
-//   var startScreen = document.getElementById("start");
-//   var gameScreen = document.getElementById("game");
-//   // Hide the start screen
-//   startScreen.style.display = "none";
-
-//   // Show the game screen
-//   gameScreen.style.display = "block";
-
-//   // Call our game initialization code or start the game here
-//   playGame();
-// }
-
-// document.addEventListener("DOMContentLoaded", startGame);
-
-// function playGame() {
-
-// }
+let gameOver = false; // Variable to track game state
 
 function jump() {
   if (isJumping) return;
@@ -75,53 +56,12 @@ function showScore() {
   if (gameOver) return;
   score++;
   displayScore.innerText = score;
-  //change score from 100 to 600!!!! 
+  //change score from 100 to 600 before sending in the game!!!! 
   if (score >= 100) {
     // Call the function that handles winning the game
     winGame();
   }
 }
-
-//Function to generate a second obstacle
-// function generateObstacleTwo() {
-//   let obstaclesTwo = document.querySelector(".obstaclesTwo");
-//   let obstacleTwo = document.createElement("div");
-//   obstacleTwo.setAttribute("class", "obstaclesTwo");
-//   obstaclesTwo.appendChild(obstacleTwo);
-
-//   let obstacleTwoRight = -200;
-//   let obstacleTwoBottom = -30;
-//   let obstacleTwoWidth = 200;
-//   let obstacleTwoHeight = 200;
-
-//   function moveObstacleTwo() {
-//     //Number 10 decides how quick the obstacles move
-//     obstacleTwoRight += 10;
-//     obstacleTwo.style.right = obstacleTwoRight + "px";
-//     obstacleTwo.style.bottom = obstacleTwoBottom + "px";
-//     obstacleTwo.style.width = obstacleTwoWidth + "px";
-//     obstacleTwo.style.height = obstacleTwoHeight + "px";
-//     // Check for collision using the modified hitbox values
-//     if (
-//       activeGame == true &&
-//       characterRight >= obstacleTwoRight - characterWidth &&
-//       characterRight <= obstacleTwoRight &&
-//       characterBottom <= obstacleTwoBottom + obstacleTwoHeight
-//     ) {
-//       gameOver = true;
-//       activeGame = false;
-//       document.getElementById("end").style.visibility = "visible";
-//       finalScore = score;
-//       document.getElementById("endScore").innerHTML = finalScore;
-//     }
-//   }
-
-//   let obstacleTwoInterval = setInterval(moveObstacleTwo, 100);
-//   let obstacleTwoTimeout = setTimeout(
-//     generateObstacleTwo,
-//     Math.floor(Math.random() * 3000) + 4000
-//   );
-// }
 
 //Function to generate the snail
 function generateObstacle() {
@@ -136,23 +76,21 @@ function generateObstacle() {
   let obstacleHeight = 200;
 
   function moveObstacle() {
-    //Number 10 decides how quick the obstacles move
     obstacleRight += 10;
     obstacle.style.right = obstacleRight + "px";
     obstacle.style.bottom = obstacleBottom + "px";
     obstacle.style.width = obstacleWidth + "px";
     obstacle.style.height = obstacleHeight + "px";
+
+    // Collision detection
     if (
-      activeGame == true &&
+      activeGame &&
       characterRight >= obstacleRight - characterWidth &&
       characterRight <= obstacleRight &&
       characterBottom <= obstacleBottom + obstacleHeight
     ) {
-      gameOver = true;
-      activeGame = false;
-      document.getElementById("end").style.visibility = "visible";
-      finalScore = score;
-      document.getElementById("endScore").innerHTML = finalScore;
+      // Collision occurred, call loseGame function
+      loseGame();
     }
   }
 
@@ -165,9 +103,26 @@ function generateObstacle() {
 
 // Main function that manages intervals and event listeners
 function startGame() {
+  gameOver = false;
+  activeGame = true;
   setInterval(showScore, 100);
   generateObstacle();
+
   document.addEventListener("keydown", control);
+}
+
+function loseGame() {
+  gameOver = true;
+  activeGame = false;
+  document.getElementById("end").style.visibility = "visible";
+  finalScore = score;
+  document.getElementById("endScore").innerHTML = finalScore;
+}
+
+function winGame() {
+  gameOver = true;
+  activeGame = false;
+  document.getElementById("win").style.visibility = "visible";
 }
 
 // Function to handle the ArrowUp key for jumping
@@ -177,22 +132,21 @@ function control(e) {
   }
 }
 
-function winGame() {
-  // Display a message or perform any other actions for winning the game
-  gameOver = true;
-  activeGame = false;
-  document.getElementById("win").style.visibility = "visible";
-}
-
 // Function to reload the page
 function reload() {
   location.reload();
 }
 
 startGame();
-
 // In this version, the startGame() function is the main function that encapsulates the intervals and event listeners. It is responsible for starting the game and managing the intervals for showing the score and generating obstacles. The control() function is also included in the startGame() function, which handles the ArrowUp key event for jumping.
 // By calling the startGame() function, you initiate the game and all the necessary intervals and
+
+
+
+
+
+
+
 
 // Old code
 // let character = document.getElementById('character')
