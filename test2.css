@@ -2,6 +2,39 @@
     text-align: center;
   }
   
-  #game-screen {
+#game-screen {
     text-align: center;
+    background-color: black;
   }
+
+  .s1
+{
+  position  : absolute;
+  font-size : 10pt;
+  color     : blue;
+  visibility: hidden;
+}
+ 
+.s2
+{
+  position  : absolute;
+  font-size : 18pt;
+  color     : red;
+	visibility : hidden;
+}
+ 
+.s3
+{
+  position  : absolute;
+  font-size : 14pt;
+  color     : gold;
+	visibility : hidden;
+}
+ 
+.s4
+{
+  position  : absolute;
+  font-size : 12pt;
+  color     : lime;
+	visibility : hidden;
+}

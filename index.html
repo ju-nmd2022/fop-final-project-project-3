@@ -1,60 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Escape game</title>
     <link rel="stylesheet" href="main.css" />
-</head>
-<body>
-    <div class="start" id="start">
-        <div class="textResultContainer">
-            <div class="startText">Escape Game</div>
-            <div class="descriptionText">The magical forest has been cursed by a warlock. He is turning the small and innocent insects into poisonous giants.<br>As the forest fairy, it is your job to save your home and all of its habitants from the curse, before the whole forest dies from the poison.<br>Press the up arrow to avoid the venomous insects to reach the warlock in time! You must score 600 to win!</div>
-            <div class="container">
-                <button class="startButton" onclick="startGame();">START</button>
-            </div>
-            <!-- <div class="fairyFloatStart"> -->
-    </div>
-    <div class="end" id="end">
-        <div class="textResultContainer">
-            <div class="gameOverText">Game Over</div>
-            <div class="resultText">Your Score</div>
-            <div class="endScore" id="endScore">0</div>
-            <div class="container">
-                <button class="startOverButton" onclick="reload();">TRY AGAIN</button>
-            </div>
-            <!-- <div class="fairyFloatLose"> -->
+  </head>
+  <body>
+  <div class="start" id="start">
+      <div class="textResultContainer">
+        <div class="descriptionTextStart">
+          The magical forest has been cursed by a warlock. He is turning the
+          small and innocent insects into poisonous giants.<br />As the forest
+          fairy, it is your job to save your home and all of its habitants from
+          the curse, before the whole forest dies from the poison.<br /><br />Press
+          the up arrow key to avoid the venomous insects.<br /> You must score 600 to reach the warlock in time!
         </div>
-    </div>
-    <div class="win" id="win">
-        <div class="textResultContainer">
-            <div class="winText">You Win!</div>
-            <div class="descriptionText">You got to the warlock in time to save your home and all of its habitants from the curse.<br>Defeating the warlock, you managed to lift the curse.</div>
-            <div class="container">
-                <button class="startOverButton" onclick="reload();">PLAY AGAIN</button>
-            </div>
-            <!-- <div class="fairyFloatWin"> -->
+        <div class="container">
+          <button class="startButton" onclick="startGame();">START</button>
         </div>
-    </div>
-    <div class="game" id="game">
-        <div class="scoreboard">
-            <h3 class="scoreCounter">Score: <span id="score">0</span></h3>
+        <div class="fairyFloatStart">
           </div>
+          </div>
+      </div>
+<div class="end" id="end">
+        <div class="textResultContainer">
+          <div class="resultText">Your Score</div>
+          <div class="endScore" id="endScore">0</div>
+          <div class="container">
+            <button class="startOverButton" onclick="reload();">
+              TRY AGAIN
+            </button>
+          </div>
+          <div class="fairyFloatLose">
+        </div>
+      </div>
+      </div>
+<div class="win" id="win">
+        <div class="textResultContainer">
+          <div class="descriptionTextWin">
+            You got to the warlock in time to save your home and all of its
+            habitants from the curse.<br />Defeating the warlock, you managed to
+            lift the curse.
+          </div>
+          <div class="container">
+            <button class="startOverButton" onclick="reload();">
+              PLAY AGAIN
+            </button>
+          </div>
+        </div>
+        <!-- <div class="fairyFloatWin"> -->
+      </div>
+      </div>
+<div class="game" id="game">
+          <h3 class="scoreCounter">Score: <span id="score">0</span></h3>
         <div id="ground"></div>
         <div id="character"></div>
-        <div id="characterJump"></div>
-        <div class="obstacles"></div>
-        <!-- <img id="displayImg"/> -->
-        <div class="background_layer">    
-            <div class="background_layer" id="frame-5"></div>
-            <div class="background_layer" id="frame-4"></div>
-            <div class="background_layer" id="frame-3"></div>
-            <div class="background_layer" id="frame-2"></div>
-            <div class="background_layer" id="frame-1"></div>
+        <div class="obstacles">
+          <div id="obstacleSnail" class="obstacle1"></div>
+          <div id="obstacleFly" class="obstacle2"></div>
+          <div id="obstacleLady" class="obstacle3"></div>
         </div>
+      </div>
+      <div class="background_layer">
+        <div class="background_layer" id="frame-5"></div>
+        <div class="background_layer" id="frame-4"></div>
+        <div class="background_layer" id="frame-3"></div>
+        <div class="background_layer" id="frame-2"></div>
+        <div class="background_layer" id="frame-1"></div>
+      </div>
     </div>
 <script src="maingame.js"></script>
-</body>
+  </body>
 </html>

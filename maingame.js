@@ -1,5 +1,4 @@
 let character = document.getElementById("character");
-// let characterJump = document.getElementById("characterJump");
 let characterBottom = parseInt(
   window.getComputedStyle(character).getPropertyValue("bottom")
 );
@@ -24,51 +23,77 @@ let score = 0;
 let finalScore = 0;
 let activeGame = true;
 let gameOver = false; // Variable to track game state
+let obstacles = []; // Array to store the obstacles
+// var obstacles = [
+//   {
+//     id: 'obstacle1',
+//     imgSrc: 'images/snail.png',
+//     width: 200,
+//     height: 200
+//   },
+//   {
+//     id: 'obstacle2',
+//     imgSrc: 'images/fly.png',
+//     width: 100,
+//     height: 100
+//   },
+//   {
+//     id: 'obstacle3',
+//     imgSrc: 'images/ladybug.png',
+//     width: 200,
+//     height: 200
+//   },
+// ];
 
 function jump() {
   if (isJumping) return;
   upTime = setInterval(() => {
     //how high up the character jumps is the number currently at 350
-    if (characterBottom >= groundHeight + 350) {
+    if (characterBottom >= groundHeight + 260) {
       clearInterval(upTime);
       downTime = setInterval(() => {
         //the number 90 below makes sure the character lands on the same height
-        if (characterBottom <= groundHeight + 90) {
+        if (characterBottom <= groundHeight) {
           clearInterval(downTime);
           isJumping = false;
         }
-        //Character bottom steers the fact that the character will move back down automatically. without this number the character moves up but never goes back down.
+        //character bottom steers the fact that the character will move back down automatically. without this number the character moves up but never goes back down.
         characterBottom -= 5;
         character.style.bottom = characterBottom + "px";
         //the number below steers to slow down the speed of the landing of the character.
-      }, 15);
+      }, 21);
     }
     //how fast the character jumps is the number 5 below
     characterBottom += 5;
     character.style.bottom = characterBottom + "px";
     isJumping = true;
     //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?
-  }, 15);
+  }, 21);
 }
 
-// Function to show the score
+// function to show the score
 function showScore() {
   if (gameOver) return;
   score++;
   displayScore.innerText = score;
   //change score from 100 to 600 before sending in the game!!!! 
   if (score >= 100) {
-    // Call the function that handles winning the game
+  // call the function that handles winning the game
     winGame();
   }
 }
 
-//Function to generate the snail
+//function to generate the snail
 function generateObstacle() {
-  let obstacles = document.querySelector(".obstacles");
   let obstacle = document.createElement("div");
   obstacle.setAttribute("class", "obstacle");
-  obstacles.appendChild(obstacle);
+  obstacles.push(obstacle);
+  document.querySelector(".obstacles").appendChild(obstacle);
+
+  //   let obstacles = document.querySelector('.obstacles');
+//   let obstacle = document.createElement('div');
+//   obstacle.setAttribute('class', 'obstacle');
+//   obstacles.appendChild(obstacle);
 
   let obstacleRight = -270;
   let obstacleBottom = -30;
@@ -82,14 +107,14 @@ function generateObstacle() {
     obstacle.style.width = obstacleWidth + "px";
     obstacle.style.height = obstacleHeight + "px";
 
-    // Collision detection
+    // collision detection
     if (
       activeGame &&
       characterRight >= obstacleRight - characterWidth &&
       characterRight <= obstacleRight &&
       characterBottom <= obstacleBottom + obstacleHeight
     ) {
-      // Collision occurred, call loseGame function
+      // collision occurred, call loseGame function
       loseGame();
     }
   }
@@ -101,10 +126,17 @@ function generateObstacle() {
   );
 }
 
-// Main function that manages intervals and event listeners
+// main function that manages intervals and event listeners
 function startGame() {
   gameOver = false;
   activeGame = true;
+  // Hide the start screen
+  var startScreen = document.getElementById("start");
+  startScreen.style.display = "none";
+
+  // Show the game screen
+  var gameScreen = document.getElementById("game");
+  gameScreen.style.display = "block";
   setInterval(showScore, 100);
   generateObstacle();
 
@@ -125,25 +157,64 @@ function winGame() {
   document.getElementById("win").style.visibility = "visible";
 }
 
-// Function to handle the ArrowUp key for jumping
+// function to handle the ArrowUp key for jumping
 function control(e) {
   if (e.key == "ArrowUp") {
     jump();
   }
 }
 
-// Function to reload the page
+// function to reload the page
 function reload() {
   location.reload();
 }
 
-startGame();
-// In this version, the startGame() function is the main function that encapsulates the intervals and event listeners. It is responsible for starting the game and managing the intervals for showing the score and generating obstacles. The control() function is also included in the startGame() function, which handles the ArrowUp key event for jumping.
-// By calling the startGame() function, you initiate the game and all the necessary intervals and
+  // let obstacleSources = [
+  //   "images/snail.png",
+  //   "images/ladybug.png",
+  //   "images/fly.png",
+  // ];
 
+  // // Select a random obstacle source
+  // let randomSource = obstacleSources[Math.floor(Math.random() * obstacleSources.length)];
 
+  // let obstacle = document.createElement("div");
+  // obstacle.setAttribute("class", "obstacle");
+  // obstacle.style.backgroundImage = `url(${randomSource})`;
+  // obstacles.push(obstacle);
+  // document.querySelector(".obstacles").appendChild(obstacle);
 
+  // let obstacleRight = -270;
+  // let obstacleBottom = -30;
+  // // let obstacleWidth = 200;
+  // // let obstacleHeight = 200;
+  // var obstacleWidth = randomObstacle.width;
+  // var obstacleHeight = randomObstacle.height;
 
+  // function moveObstacle() {
+  //   obstacleRight += 10;
+  //   obstacle.style.right = obstacleRight + "px";
+  //   obstacle.style.bottom = obstacleBottom + "px";
+  //   obstacle.style.width = obstacleWidth + "px";
+  //   obstacle.style.height = obstacleHeight + "px";
+
+  //   // Collision detection
+  //   if (
+  //     activeGame &&
+  //     characterRight >= obstacleRight - characterWidth &&
+  //     characterRight <= obstacleRight &&
+  //     characterBottom <= obstacleBottom + obstacleHeight
+  //   ) {
+  //     // Collision occurred, call loseGame function
+  //     loseGame();
+  //   }
+  // }
+
+  // let obstacleInterval = setInterval(moveObstacle, 50);
+  // let obstacleTimeout = setTimeout(
+  //   generateObstacle,
+  //   Math.floor(Math.random() * 4000) + 3000
+  // );
 
 
 
@@ -263,7 +334,3 @@ startGame();
 //       break;
 //   }
 // });
-
-// ta bort ett liv + en bild(child)
-// i krock if
-// if liv = 0 då visar vi endgame.

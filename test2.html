@@ -5,16 +5,67 @@
   <link rel="stylesheet" type="text/css" href="test2.css">
 </head>
 <body>
-  <div id="start-screen">
-    <h1>Welcome to the Game</h1>
-    <button onclick="startGame()">Play</button>
+  <div class="start" id="start">
+    <div class="textResultContainer">
+      <div class="descriptionTextStart">
+        The magical forest has been cursed by a warlock. He is turning the
+        small and innocent insects into poisonous giants.<br />As the forest
+        fairy, it is your job to save your home and all of its habitants from
+        the curse, before the whole forest dies from the poison.<br /><br />Press
+        the up arrow key to avoid the venomous insects.<br /> You must score 600 to reach the warlock in time!
+      </div>
+      <div class="container">
+        <button class="startButton" onclick="startGame();">START</button>
+      </div>
+      <div class="fairyFloatStart"></div>
+    </div>
   </div>
-
-  <div id="game-screen" style="display: none;">
-    <!-- Your game content goes here -->
-    <h1>Game Screen</h1>
+<div class="end" id="end">
+  <div class="textResultContainer">
+    <div class="resultText">Your Score</div>
+    <div class="endScore" id="endScore">0</div>
+    <div class="container">
+      <button class="startOverButton" onclick="reload();">
+        TRY AGAIN
+      </button>
+    </div>
+    <div class="fairyFloatLose"></div>
   </div>
+</div>
+<div class="win" id="win">
+  <div class="textResultContainer">
+    <div class="descriptionTextWin">
+      You got to the warlock in time to save your home and all of its
+      habitants from the curse.<br />Defeating the warlock, you managed to
+      lift the curse.
+    </div>
+    <div class="container">
+      <button class="startOverButton" onclick="reload();">
+        PLAY AGAIN
+      </button>
+    </div>
+    <div class="fairyFloatWin"></div>
+  </div>
+</div>
 
+<div class="game" id="game">
+        <h3 class="scoreCounter">Score: <span id="score">0</span></h3>
+      <div id="ground"></div>
+      <div id="character"></div>
+      <div class="obstacles">
+        <div id="obstacleSnail" class="obstacle1"></div>
+        <div id="obstacleFly" class="obstacle2"></div>
+        <div id="obstacleLady" class="obstacle3"></div>
+      </div>
+    </div>
+    <div class="background_layer">
+      <div class="background_layer" id="frame-5"></div>
+      <div class="background_layer" id="frame-4"></div>
+      <div class="background_layer" id="frame-3"></div>
+      <div class="background_layer" id="frame-2"></div>
+      <div class="background_layer" id="frame-1"></div>
+    </div>
+  </div>
   <script src="test2.js"></script>
 </body>
 </html>
