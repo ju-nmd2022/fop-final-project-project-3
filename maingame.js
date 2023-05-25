@@ -24,26 +24,94 @@ let finalScore = 0;
 let activeGame = true;
 let gameOver = false; // Variable to track game state
 let obstacles = []; // Array to store the obstacles
-// var obstacles = [
-//   {
-//     id: 'obstacle1',
-//     imgSrc: 'images/snail.png',
-//     width: 200,
-//     height: 200
-//   },
-//   {
-//     id: 'obstacle2',
-//     imgSrc: 'images/fly.png',
-//     width: 100,
-//     height: 100
-//   },
-//   {
-//     id: 'obstacle3',
-//     imgSrc: 'images/ladybug.png',
-//     width: 200,
-//     height: 200
-//   },
+// const obstacleImages = [
+//   "obstacleSnail", "obstacleFly", "obstacleLady"
 // ];
+
+//function to generate the snail
+function generateObstacle() {
+  let obstacle = document.createElement("div");
+  obstacle.setAttribute("class", "obstacle");
+  obstacles.push(obstacle);
+  document.querySelector(".obstacles").appendChild(obstacle);
+
+  //   let obstacles = document.querySelector('.obstacles');
+//   let obstacle = document.createElement('div');
+//   obstacle.setAttribute('class', 'obstacle');
+//   obstacles.appendChild(obstacle);
+
+  let obstacleRight = -270;
+  let obstacleBottom = -30;
+  let obstacleWidth = 220;
+  let obstacleHeight = 220;
+
+  // Set initial position and size
+  obstacle.style.right = obstacleRight + "px";
+  obstacle.style.bottom = obstacleBottom + "px";
+  obstacle.style.width = obstacleWidth + "px";
+  obstacle.style.height = obstacleHeight + "px";
+
+  function moveObstacle() {
+    obstacleRight += 10;
+    obstacle.style.right = obstacleRight + "px";
+    // obstacle.style.right = parseInt(obstacle.style.right) + 10 + "px";
+
+    // collision detection
+    if (
+      activeGame &&
+      characterRight >= obstacleRight - characterWidth &&
+      characterRight <= obstacleRight &&
+      characterBottom <= obstacleBottom + obstacleHeight
+    ) {
+      // collision occurred, call loseGame function
+      loseGame();
+    }
+
+    if (parseInt(obstacle.style.right) >= window.innerWidth) {
+      obstacle.parentNode.removeChild(obstacle);
+      obstacles.splice(obstacles.indexOf(obstacle), 1);
+    }
+  }
+
+  let obstacleInterval = setInterval(moveObstacle, 50);
+  let obstacleTimeout = setTimeout(
+    generateObstacle,
+    Math.floor(Math.random() * 4000) + 3000
+  );
+}
+
+// main function that manages intervals and event listeners
+function startGame() {
+  gameOver = false;
+  activeGame = true;
+  // Hide the start screen
+  var startScreen = document.getElementById("start");
+  startScreen.style.display = "none";
+  // var endScreen = document.getElementById("end");
+  // endScreen.style.display = "none";
+
+  // Show the game screen
+  var gameScreen = document.getElementById("game");
+  gameScreen.style.display = "block";
+  setInterval(showScore, 100);
+  generateObstacle();
+
+  document.addEventListener("keydown", control);
+}
+
+function loseGame() {
+  gameOver = true;
+  activeGame = false;
+  document.getElementById("end").style.visibility = "visible";
+  finalScore = score;
+  document.getElementById("endScore").innerHTML = finalScore;
+}
+
+function winGame() {
+  gameOver = true;
+  activeGame = false;
+  document.getElementById("win").style.visibility = "visible";
+}
 
 function jump() {
   if (isJumping) return;
@@ -73,88 +141,15 @@ function jump() {
 
 // function to show the score
 function showScore() {
-  if (gameOver) return;
+  if (!activeGame) return;
+  // if (gameOver) return;
   score++;
   displayScore.innerText = score;
   //change score from 100 to 600 before sending in the game!!!! 
-  if (score >= 100) {
+  if (score >= 600) {
   // call the function that handles winning the game
     winGame();
   }
-}
-
-//function to generate the snail
-function generateObstacle() {
-  let obstacle = document.createElement("div");
-  obstacle.setAttribute("class", "obstacle");
-  obstacles.push(obstacle);
-  document.querySelector(".obstacles").appendChild(obstacle);
-
-  //   let obstacles = document.querySelector('.obstacles');
-//   let obstacle = document.createElement('div');
-//   obstacle.setAttribute('class', 'obstacle');
-//   obstacles.appendChild(obstacle);
-
-  let obstacleRight = -270;
-  let obstacleBottom = -30;
-  let obstacleWidth = 200;
-  let obstacleHeight = 200;
-
-  function moveObstacle() {
-    obstacleRight += 10;
-    obstacle.style.right = obstacleRight + "px";
-    obstacle.style.bottom = obstacleBottom + "px";
-    obstacle.style.width = obstacleWidth + "px";
-    obstacle.style.height = obstacleHeight + "px";
-
-    // collision detection
-    if (
-      activeGame &&
-      characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight &&
-      characterBottom <= obstacleBottom + obstacleHeight
-    ) {
-      // collision occurred, call loseGame function
-      loseGame();
-    }
-  }
-
-  let obstacleInterval = setInterval(moveObstacle, 50);
-  let obstacleTimeout = setTimeout(
-    generateObstacle,
-    Math.floor(Math.random() * 4000) + 3000
-  );
-}
-
-// main function that manages intervals and event listeners
-function startGame() {
-  gameOver = false;
-  activeGame = true;
-  // Hide the start screen
-  var startScreen = document.getElementById("start");
-  startScreen.style.display = "none";
-
-  // Show the game screen
-  var gameScreen = document.getElementById("game");
-  gameScreen.style.display = "block";
-  setInterval(showScore, 100);
-  generateObstacle();
-
-  document.addEventListener("keydown", control);
-}
-
-function loseGame() {
-  gameOver = true;
-  activeGame = false;
-  document.getElementById("end").style.visibility = "visible";
-  finalScore = score;
-  document.getElementById("endScore").innerHTML = finalScore;
-}
-
-function winGame() {
-  gameOver = true;
-  activeGame = false;
-  document.getElementById("win").style.visibility = "visible";
 }
 
 // function to handle the ArrowUp key for jumping

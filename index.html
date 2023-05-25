@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Escape game</title>
+    <title>Fairy Quest</title>
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
@@ -29,8 +29,11 @@
           <div class="resultText">Your Score</div>
           <div class="endScore" id="endScore">0</div>
           <div class="container">
-            <button class="startOverButton" onclick="reload();">
+            <button class="startOverButton" onclick="startGame();">
               TRY AGAIN
+            </button>
+            <button class="goToStartButton" onclick="reload();">
+              GO TO START
             </button>
           </div>
           <div class="fairyFloatLose">
@@ -45,8 +48,11 @@
             lift the curse.
           </div>
           <div class="container">
-            <button class="startOverButton" onclick="reload();">
+            <button class="startOverButton" onclick="startGame();">
               PLAY AGAIN
+            </button>
+            <button class="goToStartButton" onclick="reload();">
+              GO TO START
             </button>
           </div>
         </div>
@@ -54,13 +60,13 @@
       </div>
       </div>
 <div class="game" id="game">
-          <h3 class="scoreCounter">Score: <span id="score">0</span></h3>
+        <h3 class="scoreCounter">Score: <span id="score">0</span></h3>
         <div id="ground"></div>
         <div id="character"></div>
         <div class="obstacles">
-          <div id="obstacleSnail" class="obstacle1"></div>
+          <!-- <div id="obstacleSnail" class="obstacle1"></div>
           <div id="obstacleFly" class="obstacle2"></div>
-          <div id="obstacleLady" class="obstacle3"></div>
+          <div id="obstacleLady" class="obstacle3"></div> -->
         </div>
       </div>
       <div class="background_layer">
