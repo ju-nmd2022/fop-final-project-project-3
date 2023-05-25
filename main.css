@@ -47,7 +47,7 @@ body {
   color: #f1ecd5;
 }
 
-/* The game screen */
+/* game screen */
 #game {
   display: block;
 }
@@ -81,9 +81,7 @@ body {
   right: calc(100% - 350px);
   z-index: 2;
   animation: float 2s ease-in-out infinite;
-  /* //Dessa kontrollerar bordern runt karaktären */
   border: solid 0px;
-  /* border-radius: 50%;  */
 }
 
 .obstacle {
@@ -246,6 +244,7 @@ body {
   color: #f1ecd5;
 }
 
+/* fairy float */
 .fairyFloatStart {
   background-image: url(images/fairy.png);
   background-repeat: no-repeat;
