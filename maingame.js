@@ -24,9 +24,6 @@ let finalScore = 0;
 let activeGame = true;
 let gameOver = false; // Variable to track game state
 let obstacles = []; // Array to store the obstacles
-// const obstacleImages = [
-//   "obstacleSnail", "obstacleFly", "obstacleLady"
-// ];
 
 //function to generate the snail
 function generateObstacle() {
@@ -34,11 +31,6 @@ function generateObstacle() {
   obstacle.setAttribute("class", "obstacle");
   obstacles.push(obstacle);
   document.querySelector(".obstacles").appendChild(obstacle);
-
-  //   let obstacles = document.querySelector('.obstacles');
-//   let obstacle = document.createElement('div');
-//   obstacle.setAttribute('class', 'obstacle');
-//   obstacles.appendChild(obstacle);
 
   let obstacleRight = -170;
   let obstacleBottom = -30;
@@ -59,7 +51,7 @@ function generateObstacle() {
     if (
       activeGame &&
       characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight &&
+      characterRight <= obstacleRight +150 &&
       characterBottom <= obstacleBottom + obstacleHeight
     ) {
       // collision occurred, call loseGame function
@@ -72,8 +64,8 @@ function generateObstacle() {
     }
   }
 
-  let obstacleInterval = setInterval(moveObstacle, 50);
-  let obstacleTimeout = setTimeout(
+setInterval(moveObstacle, 50);
+setTimeout(
     generateObstacle,
     Math.floor(Math.random() * 4000) + 3000
   );
@@ -86,9 +78,6 @@ function startGame() {
   // Hide the start screen
   var startScreen = document.getElementById("start");
   startScreen.style.display = "none";
-  // var endScreen = document.getElementById("end");
-  // endScreen.style.display = "none";
-  document.getElementById("end").style.visibility = "hidden";
 
   // Show the game screen
   var gameScreen = document.getElementById("game");
@@ -117,7 +106,7 @@ function jump() {
   if (isJumping) return;
   upTime = setInterval(() => {
     //how high up the character jumps is the number currently at 350
-    if (characterBottom >= groundHeight + 260) {
+    if (characterBottom >= groundHeight + 400) {
       clearInterval(upTime);
       downTime = setInterval(() => {
         //the number 90 below makes sure the character lands on the same height
@@ -132,7 +121,7 @@ function jump() {
       }, 21);
     }
     //how fast the character jumps is the number 5 below
-    characterBottom += 5;
+    characterBottom += 3;
     character.style.bottom = characterBottom + "px";
     isJumping = true;
     //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?

@@ -1,9 +1,5 @@
 To do
 
-- How to load to the game screen directly
-- I feel that the fairy doesn't collide with the snail when it should but i am unsure where to fix that
-- The game loads oddly
-
 Nelia
 
 - Fix trailer
@@ -16,3 +12,4 @@ Ida
 - How to put the "lose game functions” into its own function rather than under move obstacles function for it to make more sense? CHECK
 - Connect startscreen with main game like endscreen CHECK
 - The snail at first shows on the right of the screen and gets all morphed before appearing as it should. this happened to me before and eveline helped me but it had to do with the background-repeat: no-repeat; but this time it doesn't work... it might have to do with the z-index...CHECK
+- I feel that the fairy doesn't collide with the snail when it should but i am unsure where to fix that CHECK
