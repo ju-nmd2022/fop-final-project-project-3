@@ -38,7 +38,7 @@ function generateObstacle() {
   document.querySelector(".obstacles").appendChild(obstacle);
 
   let obstacleRight = -100;
-  let obstacleBottom = -25;
+  let obstacleBottom = -10;
   let obstacleWidth = 200;
   let obstacleHeight = 200;
 
@@ -58,7 +58,7 @@ function generateObstacle() {
     if (
       activeGame &&
       characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight + 170 &&
+      characterRight <= obstacleRight + 150 &&
       characterBottom + 30 <= obstacleBottom + obstacleHeight
     ) {
       // collision occurred, call loseGame function
