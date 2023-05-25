@@ -28,8 +28,9 @@ let obstacles = []; // Array to store the obstacles
 //function to generate the snail
 function generateObstacle() {
   //här kan du lägga till mer karaktärer och ändra dem. namn på dem i images folder är viktig
-  const obstacleArray = ["snail", "ladybug", "bug"];
-  let randomObstacle = obstacleArray[Math.floor(Math.random() * obstacleArray.length)];
+  const obstacleArray = ["snail", "ladybug", "grasshopper", "bee", "fly"];
+  let randomObstacle =
+    obstacleArray[Math.floor(Math.random() * obstacleArray.length)];
   let obstacle = document.createElement("div");
   obstacle.setAttribute("class", "obstacle");
 
@@ -48,10 +49,9 @@ function generateObstacle() {
   obstacle.style.width = obstacleWidth + "px";
   obstacle.style.height = obstacleHeight + "px";
   //Dessa kontrollerar bordern runt insekterna
-  obstacle.style.border = "solid 1px black";
+  obstacle.style.border = "solid 0px black";
   // obstacle.style.borderRadius = "50%";
   obstacle.style.backgroundPosition = "top";
-
 
   function moveObstacle() {
     obstacleRight += 10;
@@ -62,18 +62,15 @@ function generateObstacle() {
       activeGame &&
       characterRight >= obstacleRight - characterWidth &&
       characterRight <= obstacleRight + 170 &&
-      characterBottom +30 <= obstacleBottom + obstacleHeight
+      characterBottom + 30 <= obstacleBottom + obstacleHeight
     ) {
       // collision occurred, call loseGame function
       loseGame();
     }
   }
 
-setInterval(moveObstacle, 50);
-setTimeout(
-    generateObstacle,
-    Math.floor(Math.random() * 4000) + 3000
-  );
+  setInterval(moveObstacle, 50);
+  setTimeout(generateObstacle, Math.floor(Math.random() * 4000) + 3000);
 }
 
 // main function that manages intervals and event listeners
@@ -138,9 +135,9 @@ function showScore() {
   // if (gameOver) return;
   score++;
   displayScore.innerText = score;
-  //change score from 100 to 600 before sending in the game!!!! 
+  //change score from 100 to 600 before sending in the game!!!!
   if (score >= 600) {
-  // call the function that handles winning the game
+    // call the function that handles winning the game
     winGame();
   }
 }
@@ -158,55 +155,52 @@ function reload() {
   location.reload();
 }
 
-  // let obstacleSources = [
-  //   "images/snail.png",
-  //   "images/ladybug.png",
-  //   "images/fly.png",
-  // ];
+// let obstacleSources = [
+//   "images/snail.png",
+//   "images/ladybug.png",
+//   "images/fly.png",
+// ];
 
-  // // Select a random obstacle source
-  // let randomSource = obstacleSources[Math.floor(Math.random() * obstacleSources.length)];
+// // Select a random obstacle source
+// let randomSource = obstacleSources[Math.floor(Math.random() * obstacleSources.length)];
 
-  // let obstacle = document.createElement("div");
-  // obstacle.setAttribute("class", "obstacle");
-  // obstacle.style.backgroundImage = `url(${randomSource})`;
-  // obstacles.push(obstacle);
-  // document.querySelector(".obstacles").appendChild(obstacle);
+// let obstacle = document.createElement("div");
+// obstacle.setAttribute("class", "obstacle");
+// obstacle.style.backgroundImage = `url(${randomSource})`;
+// obstacles.push(obstacle);
+// document.querySelector(".obstacles").appendChild(obstacle);
 
-  // let obstacleRight = -270;
-  // let obstacleBottom = -30;
-  // // let obstacleWidth = 200;
-  // // let obstacleHeight = 200;
-  // var obstacleWidth = randomObstacle.width;
-  // var obstacleHeight = randomObstacle.height;
+// let obstacleRight = -270;
+// let obstacleBottom = -30;
+// // let obstacleWidth = 200;
+// // let obstacleHeight = 200;
+// var obstacleWidth = randomObstacle.width;
+// var obstacleHeight = randomObstacle.height;
 
-  // function moveObstacle() {
-  //   obstacleRight += 10;
-  //   obstacle.style.right = obstacleRight + "px";
-  //   obstacle.style.bottom = obstacleBottom + "px";
-  //   obstacle.style.width = obstacleWidth + "px";
-  //   obstacle.style.height = obstacleHeight + "px";
+// function moveObstacle() {
+//   obstacleRight += 10;
+//   obstacle.style.right = obstacleRight + "px";
+//   obstacle.style.bottom = obstacleBottom + "px";
+//   obstacle.style.width = obstacleWidth + "px";
+//   obstacle.style.height = obstacleHeight + "px";
 
-  //   // Collision detection
-  //   if (
-  //     activeGame &&
-  //     characterRight >= obstacleRight - characterWidth &&
-  //     characterRight <= obstacleRight &&
-  //     characterBottom <= obstacleBottom + obstacleHeight
-  //   ) {
-  //     // Collision occurred, call loseGame function
-  //     loseGame();
-  //   }
-  // }
+//   // Collision detection
+//   if (
+//     activeGame &&
+//     characterRight >= obstacleRight - characterWidth &&
+//     characterRight <= obstacleRight &&
+//     characterBottom <= obstacleBottom + obstacleHeight
+//   ) {
+//     // Collision occurred, call loseGame function
+//     loseGame();
+//   }
+// }
 
-  // let obstacleInterval = setInterval(moveObstacle, 50);
-  // let obstacleTimeout = setTimeout(
-  //   generateObstacle,
-  //   Math.floor(Math.random() * 4000) + 3000
-  // );
-
-
-
+// let obstacleInterval = setInterval(moveObstacle, 50);
+// let obstacleTimeout = setTimeout(
+//   generateObstacle,
+//   Math.floor(Math.random() * 4000) + 3000
+// );
 
 // Old code
 // let character = document.getElementById('character')
