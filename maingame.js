@@ -40,7 +40,7 @@ function generateObstacle() {
 //   obstacle.setAttribute('class', 'obstacle');
 //   obstacles.appendChild(obstacle);
 
-  let obstacleRight = -270;
+  let obstacleRight = -170;
   let obstacleBottom = -30;
   let obstacleWidth = 220;
   let obstacleHeight = 220;
@@ -54,7 +54,6 @@ function generateObstacle() {
   function moveObstacle() {
     obstacleRight += 10;
     obstacle.style.right = obstacleRight + "px";
-    // obstacle.style.right = parseInt(obstacle.style.right) + 10 + "px";
 
     // collision detection
     if (
@@ -89,6 +88,7 @@ function startGame() {
   startScreen.style.display = "none";
   // var endScreen = document.getElementById("end");
   // endScreen.style.display = "none";
+  document.getElementById("end").style.visibility = "hidden";
 
   // Show the game screen
   var gameScreen = document.getElementById("game");
@@ -153,8 +153,9 @@ function showScore() {
 }
 
 // function to handle the ArrowUp key for jumping
+//what it means to have two == signs?
 function control(e) {
-  if (e.key == "ArrowUp") {
+  if (e.key === "ArrowUp") {
     jump();
   }
 }

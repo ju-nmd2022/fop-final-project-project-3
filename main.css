@@ -15,7 +15,6 @@ body {
   position: absolute;
   background-image: url(images/startscreen.png);
   background-size: cover;
-  /* visibility: hidden; */
   z-index: 4;
 }
 
@@ -87,8 +86,8 @@ body {
   background-image: url(images/snail.png);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   position: absolute;
   bottom: 40px;
   right: 0;

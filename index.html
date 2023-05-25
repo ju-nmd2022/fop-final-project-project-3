@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fairy Quest</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="maingame.js" defer></script>
   </head>
   <body>
   <div class="start" id="start">
@@ -18,7 +19,7 @@
           the up arrow key to avoid the venomous insects.<br /> You must score 600 to reach the warlock in time!
         </div>
         <div class="container">
-          <button class="startButton" onclick="startGame();">START</button>
+          <button class="startButton" onclick="startGame()">START</button>
         </div>
         <div class="fairyFloatStart">
           </div>
@@ -29,10 +30,7 @@
           <div class="resultText">Your Score</div>
           <div class="endScore" id="endScore">0</div>
           <div class="container">
-            <button class="startOverButton" onclick="startGame();">
-              TRY AGAIN
-            </button>
-            <button class="goToStartButton" onclick="reload();">
+            <button class="goToStartButton" onclick="reload()">
               GO TO START
             </button>
           </div>
@@ -48,9 +46,6 @@
             lift the curse.
           </div>
           <div class="container">
-            <button class="startOverButton" onclick="startGame();">
-              PLAY AGAIN
-            </button>
             <button class="goToStartButton" onclick="reload();">
               GO TO START
             </button>
@@ -77,6 +72,5 @@
         <div class="background_layer" id="frame-1"></div>
       </div>
     </div>
-<script src="maingame.js"></script>
   </body>
 </html>
