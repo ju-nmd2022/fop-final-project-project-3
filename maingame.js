@@ -27,21 +27,31 @@ let obstacles = []; // Array to store the obstacles
 
 //function to generate the snail
 function generateObstacle() {
+  //här kan du lägga till mer karaktärer och ändra dem. namn på dem i images folder är viktig
+  const obstacleArray = ["snail", "ladybug", "bug"];
+  let randomObstacle = obstacleArray[Math.floor(Math.random() * obstacleArray.length)];
   let obstacle = document.createElement("div");
   obstacle.setAttribute("class", "obstacle");
+
+  obstacle.style.backgroundImage = "url('images/" + randomObstacle + ".png";
   obstacles.push(obstacle);
   document.querySelector(".obstacles").appendChild(obstacle);
 
-  let obstacleRight = -170;
-  let obstacleBottom = -30;
-  let obstacleWidth = 220;
-  let obstacleHeight = 220;
+  let obstacleRight = -100;
+  let obstacleBottom = -25;
+  let obstacleWidth = 200;
+  let obstacleHeight = 200;
 
   // Set initial position and size
   obstacle.style.right = obstacleRight + "px";
   obstacle.style.bottom = obstacleBottom + "px";
   obstacle.style.width = obstacleWidth + "px";
   obstacle.style.height = obstacleHeight + "px";
+  //Dessa kontrollerar bordern runt insekterna
+  obstacle.style.border = "solid 1px black";
+  // obstacle.style.borderRadius = "50%";
+  obstacle.style.backgroundPosition = "top";
+
 
   function moveObstacle() {
     obstacleRight += 10;
@@ -51,16 +61,11 @@ function generateObstacle() {
     if (
       activeGame &&
       characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight +150 &&
-      characterBottom <= obstacleBottom + obstacleHeight
+      characterRight <= obstacleRight + 170 &&
+      characterBottom +30 <= obstacleBottom + obstacleHeight
     ) {
       // collision occurred, call loseGame function
       loseGame();
-    }
-
-    if (parseInt(obstacle.style.right) >= window.innerWidth) {
-      obstacle.parentNode.removeChild(obstacle);
-      obstacles.splice(obstacles.indexOf(obstacle), 1);
     }
   }
 
@@ -106,22 +111,21 @@ function jump() {
   if (isJumping) return;
   upTime = setInterval(() => {
     //how high up the character jumps is the number currently at 350
-    if (characterBottom >= groundHeight + 400) {
+    if (characterBottom >= groundHeight + 300) {
       clearInterval(upTime);
       downTime = setInterval(() => {
-        //the number 90 below makes sure the character lands on the same height
         if (characterBottom <= groundHeight) {
           clearInterval(downTime);
           isJumping = false;
         }
         //character bottom steers the fact that the character will move back down automatically. without this number the character moves up but never goes back down.
-        characterBottom -= 5;
+        characterBottom -= 4;
         character.style.bottom = characterBottom + "px";
         //the number below steers to slow down the speed of the landing of the character.
       }, 21);
     }
     //how fast the character jumps is the number 5 below
-    characterBottom += 3;
+    characterBottom += 4;
     character.style.bottom = characterBottom + "px";
     isJumping = true;
     //the number below steers how fast the character lands currently at 15 ------------ same thing here. what's the difference?

@@ -75,61 +75,25 @@ body {
   background-size: contain;
   width: 200px;
   height: 200px;
+  background-position: bottom;
   position: absolute;
   bottom: 70px;
   right: calc(100% - 350px);
   z-index: 2;
   animation: float 2s ease-in-out infinite;
+/* //Dessa kontrollerar bordern runt karaktären */
+  border: solid 1px black;
+  /* border-radius: 50%;  */
 }
 
 .obstacle {
-  background-image: url(images/snail.png);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 220px;
-  height: 220px;
   position: absolute;
-  bottom: 40px;
+  background-position: top;
   right: 0;
   z-index: 2;
   animation: move 4s ease-in-out infinite;
-}
-
-
-.obstacle1 {
-  background-image: url(images/snail.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  z-index: 2;
-}
-
-.obstacle2 {
-  background-image: url(images/fly.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  z-index: 2;
-}
-
-.obstacle3 {
-  background-image: url(images/ladybug.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  bottom: 70px;
-  right: 0;
-  z-index: 2;
 }
 
 /* Parallax animation */
@@ -138,8 +102,8 @@ body {
   grid-row: 1/1;
   position: absolute;
   background-size: contain;
-  /* background-position: center; */
-  /* background-repeat: repeat; */
+  background-position: center;
+  background-repeat: repeat;
   width: 7000px;
   height: 100vh;
   padding: 0;

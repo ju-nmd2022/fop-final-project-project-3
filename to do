@@ -3,7 +3,9 @@ To do
 Nelia
 
 - Fix trailer
-- add arrays by adding more than one obstacle
+- Look at collision between obstacles and character
+- Clean up code
+- Remove border around character and obstacles
 
 Ida
 
