@@ -27,7 +27,7 @@ let obstacles = []; // Array to store the obstacles
 
 //function to generate the obstacles
 function generateObstacle() {
-  const obstacleArray = ["snail", "ladybug", "grasshopper", "bee", "fly"];
+  const obstacleArray = ["snail", "ladybug", "grasshopper", "fly"];
   let randomObstacle =
     obstacleArray[Math.floor(Math.random() * obstacleArray.length)];
   let obstacle = document.createElement("div");
@@ -37,8 +37,8 @@ function generateObstacle() {
   obstacles.push(obstacle);
   document.querySelector(".obstacles").appendChild(obstacle);
 
-  let obstacleRight = -100;
-  let obstacleBottom = -10;
+  let obstacleRight = -170;
+  let obstacleBottom = 2;
   let obstacleWidth = 200;
   let obstacleHeight = 200;
 
@@ -47,8 +47,8 @@ function generateObstacle() {
   obstacle.style.bottom = obstacleBottom + "px";
   obstacle.style.width = obstacleWidth + "px";
   obstacle.style.height = obstacleHeight + "px";
-  obstacle.style.border = "solid 0px black";
-  obstacle.style.backgroundPosition = "top";
+  obstacle.style.backgroundPosition = "center";
+  obstacle.style.border = "solid 1px black";
 
   function moveObstacle() {
     obstacleRight += 10;
@@ -58,8 +58,8 @@ function generateObstacle() {
     if (
       activeGame &&
       characterRight >= obstacleRight - characterWidth &&
-      characterRight <= obstacleRight + 150 &&
-      characterBottom + 30 <= obstacleBottom + obstacleHeight
+      characterRight <= obstacleRight + 120 &&
+      characterBottom <= obstacleBottom + obstacleHeight - 40
     ) {
       // collision occurred, call loseGame function
       loseGame();
@@ -105,7 +105,7 @@ function jump() {
   if (isJumping) return;
   upTime = setInterval(() => {
     //how high up the character jumps is the number currently at 300
-    if (characterBottom >= groundHeight + 300) {
+    if (characterBottom >= groundHeight + 260) {
       clearInterval(upTime);
       downTime = setInterval(() => {
         if (characterBottom <= groundHeight) {
@@ -139,7 +139,6 @@ function showScore() {
 }
 
 // function to handle the ArrowUp key for jumping
-//what it means to have two == signs?
 function control(e) {
   if (e.key === "ArrowUp") {
     jump();
