@@ -1,24 +1,18 @@
-Javascript:
-Based character, obstacle, game etc divs in html based on this
-https://www.youtube.com/watch?v=bG2BmmYr9NQ&t=202s
-
-Start screen, win screen and Result screen
+Start screen, win screen, result screen, score button
 https://www.youtube.com/watch?v=fYoFzkPC2O4&list=WL&index=24
 
-for jumping, obstacles and arrowUp control (javascript, html and css)
+for jumping, obstacles and arrowUp control
 https://www.youtube.com/watch?v=a0TyCnFgqlk&t=263s
-and
-https://www.youtube.com/watch?v=aJlVr7z4Brw&t=363s
 
 scoreboard and score count
 https://www.youtube.com/watch?v=IO1M_SO0ow4
 
-ChatGPT helped with: 24-26, 37, 74 (how to move all the intervals into one function and call on this function to start the game.), 90-102 (same for lose and win game functions to sort it out better as lose game was only in the generateobstacle function), 134-137 (how to add a score = win)
+ChatGPT https://openai.com/blog/chatgpt
 
-Emma Åkerberg (coder) helped with line - 30-32 + 36 and
+Emma Åkerberg (coder)
+
 https://www.w3schools.com/js/js_arrays.asp
 
-Css:
 Parallax
 https://sam.beckham.io/wrote/css-parallax-effect/
 https://blog.logrocket.com/create-parallax-scrolling-css/
@@ -26,22 +20,17 @@ https://blog.logrocket.com/create-parallax-scrolling-css/
 background
 https://craftpix.net/freebies/free-cartoon-forest-game-backgrounds/
 
-character
+character (fairy)
 https://www.freepik.com/author/user2104819
+
+obstacles (ladybug, grasshopper, fly, snail, bug)
+https://www.freepik.com/author/upklyak
+
+warlock
+https://www.freepik.com/author/brgfx
 
 float animation
 https://blog.hubspot.com/website/css-animation-examples
 
-https://stackoverflow.com/questions/27671709/position-buttons-next-to-each-other-in-the-center-of-page
-
 z-index positions
 https://www.w3schools.com/cssref/pr_pos_z-index.php
-
-css positioning
-https://www.w3schools.com/css/css_positioning.asp
-
-How to reference:
-
-<!-- The following lines of code was added by courtesy of Garrit Schaap. -->
-
-<!-- //The following 2 lines of code was adapted from https://www.w3schools.com/cssref/pr_background-image.php */ -->
